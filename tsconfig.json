@@ -12,8 +12,7 @@
     "target": "esnext",
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    "skipLibCheck": true,
-    "experimentalDecorators": true
+    "skipLibCheck": true
   },
   "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
 }
