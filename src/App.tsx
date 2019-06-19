@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import Provider from './state/AppContext'
+import { Provider } from './state/AppContext'
 import TestScreen from './screens/TestScreen'
 
 const App = () => {

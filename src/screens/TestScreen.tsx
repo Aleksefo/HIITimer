@@ -1,12 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
-import { useStateValue } from '../state/AppContext'
+import { useGlobalState, useDispatch } from '../state/AppContext'
 import TestScreen from './Test'
-
-enum ActionType {
-  Increment = 'increment',
-  Decrement = 'decrement',
-}
 
 const DashboardScreen = () => {
   // const [text, setText] = useState()
@@ -25,12 +20,13 @@ const DashboardScreen = () => {
   //empty array to run only once DidMount
   //value for DidUpdate
 
-  const [state, dispatch] = useStateValue()
+  const dispatch = useDispatch()
+  const state = useGlobalState()
   return (
     <View style={styles.container}>
       <Text>{state.count}</Text>
-      <Button title={'increment'} onPress={() => dispatch({ type: ActionType.Increment, payload: { count: 1 } })} />
-      <Button title={'decrement'} onPress={() => dispatch({ type: ActionType.Decrement, payload: { count: 1 } })} />
+      <Button title={'increment'} onPress={() => dispatch({ type: 'increment', payload: { count: 1 } })} />
+      <Button title={'decrement'} onPress={() => dispatch({ type: 'decrement', payload: { count: 1 } })} />
       <TestScreen />
     </View>
   )

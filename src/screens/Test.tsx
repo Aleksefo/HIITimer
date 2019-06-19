@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Text, Button } from 'react-native'
-import { useStateValue } from '../state/AppContext'
+import { useGlobalState, useDispatch } from '../state/AppContext'
 
 const Test = () => {
-  const [state, dispatch] = useStateValue()
-
+  const dispatch = useDispatch()
+  const state = useGlobalState()
   return (
     <View>
       <Text>Test:</Text>

@@ -1,40 +1,44 @@
-import React, { useReducer, useContext } from 'react'
+import React, { useReducer, useContext, createContext, Dispatch } from 'react'
 
-export enum ActionType {
-  Increment = 'increment',
-  Decrement = 'decrement',
-}
+type Action =
+  | {
+      type: 'increment'
+      payload: {
+        count: number
+      }
+    }
+  | {
+      type: 'decrement'
+      payload: {
+        count: number
+      }
+    }
 
-interface IState {
-  count: number
-}
-interface IAction {
-  type: ActionType
-  payload: {
-    count: number
-  }
-}
-
-export const initialState: IState = {
+export const initialState = {
   count: 3,
 }
 
-const appReducer: React.Reducer<IState, IAction> = (state, action) => {
+const appReducer = (state, action: Action) => {
   switch (action.type) {
-    case ActionType.Increment:
+    case 'increment':
       return { count: state.count + action.payload.count }
-    case ActionType.Decrement:
+    case 'decrement':
       return { count: state.count - action.payload.count }
     default:
-      throw new Error('Undefined action ' + action.type)
+      throw new Error('Undefined action ' + action)
   }
 }
 
-const AppContext = React.createContext<{} | null>(initialState)
+const StateCtx = createContext(initialState)
+const DispatchCtx = createContext((() => 0) as Dispatch<Action>)
 
-const Provider = ({ children }) => (
-  <AppContext.Provider value={useReducer(appReducer, initialState)}>{children}</AppContext.Provider>
-)
-export default Provider
-
-export const useStateValue = () => useContext(AppContext)
+export const Provider = ({ children }) => {
+  const [state, dispatch] = useReducer(appReducer, initialState)
+  return (
+    <DispatchCtx.Provider value={dispatch}>
+      <StateCtx.Provider value={state}>{children}</StateCtx.Provider>
+    </DispatchCtx.Provider>
+  )
+}
+export const useDispatch = () => useContext(DispatchCtx)
+export const useGlobalState = () => useContext(StateCtx)
