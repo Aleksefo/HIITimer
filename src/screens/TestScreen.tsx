@@ -1,7 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
 import { useGlobalState, useDispatch } from '../state/AppContext'
-import TestScreen from './Test'
 
 const DashboardScreen = () => {
   // const [text, setText] = useState()
@@ -24,10 +23,20 @@ const DashboardScreen = () => {
   const state = useGlobalState()
   return (
     <View style={styles.container}>
-      <Text>{state.count}</Text>
-      <Button title={'increment'} onPress={() => dispatch({ type: 'increment', payload: { count: 1 } })} />
-      <Button title={'decrement'} onPress={() => dispatch({ type: 'decrement', payload: { count: 1 } })} />
-      <TestScreen />
+      <Text>{state.counterStatus}</Text>
+      <Text>{state.set1Time}</Text>
+      <Text>{state.set2Time}</Text>
+      <Text>{state.set3Time}</Text>
+      <Text>{state.set4Time}</Text>
+      <Text>{state.totalRounds}</Text>
+      <Text>{state.currentRound}</Text>
+      <Text>{state.totalSets}</Text>
+      <Text>{state.currentSet}</Text>
+      <Text>{state.timeSession}</Text>
+      <Text>{state.timeSessionLeft}</Text>
+      <Text>{state.totalTimeLeft}</Text>
+      <Button title={'increment'} onPress={() => dispatch({ type: 'resetData' })} />
+      <Button title={'decrement'} onPress={() => dispatch({ type: 'changeStatus', payload: { command: 'start' } })} />
     </View>
   )
 }
