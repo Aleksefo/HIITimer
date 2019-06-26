@@ -1,38 +1,27 @@
-import {
-  DeviceEventEmitter,
-  NativeAppEventEmitter,
-  Platform,
-} from 'react-native'
 import _BackgroundTimer from 'react-native-background-timer'
+import React from 'react'
 
-const EventEmitter = Platform.select({
-  ios: () => NativeAppEventEmitter,
-  android: () => DeviceEventEmitter,
-})()
+interface Props {
+  ref: any
+}
+class BackgroundTimer extends React.Component<Props> {
+  backgroundTimer
 
-class BackgroundTimer {
-  constructor(props) {
-    // super(props)
-    let backgroundListener
+  componentWillUnmount() {
+    this.stopCount()
   }
 
-  static setInterval(callback, delay) {
+  startCount = (callback, delay) => {
     _BackgroundTimer.start()
-    this.backgroundListener = EventEmitter.addListener(
-      'backgroundTimer',
-      () => {
-        this.backgroundTimer = _BackgroundTimer.setInterval(callback, delay)
-      },
-    )
-    return this.backgroundListener
+    this.backgroundTimer = _BackgroundTimer.setInterval(callback, delay)
   }
 
-  static clearInterval(timer) {
-    console.log('BackgroundTimer, clearInterval timer', timer)
-    if (timer) timer.remove()
-    if (this.backgroundTimer)
-      _BackgroundTimer.clearInterval(this.backgroundTimer)
+  stopCount = () => {
+    _BackgroundTimer.clearInterval(this.backgroundTimer)
     _BackgroundTimer.stop()
+  }
+  render() {
+    return null
   }
 }
 
