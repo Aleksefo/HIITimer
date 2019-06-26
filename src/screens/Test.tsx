@@ -8,12 +8,12 @@ const Test = () => {
   return (
     <View>
       <Text>Test:</Text>
-      <Text>{state.count}</Text>
-      <Button title={'increment'} onPress={() => dispatch({ type: 'increment', payload: { count: 1 } })}>
-        +
-      </Button>
+      {/*<Text>{state.count}</Text>*/}
+      {/*<Button title={'increment'} onPress={() => dispatch({ type: 'increment', payload: { count: 1 } })}>*/}
+      {/*+*/}
+      {/*</Button>*/}
     </View>
   )
 }
 
-export default Test
+export default React.memo(Test)
