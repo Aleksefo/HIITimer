@@ -19,6 +19,15 @@ type Action =
       type: 'resetData'
     }
   | {
+      type: 'decrement'
+    }
+  | {
+      type: 'setTimeSessionLeft'
+      payload: {
+        timeSessionLeft: number
+      }
+    }
+  | {
       type: 'changeStatus'
       payload: {
         command: 'start' | 'pause' | 'resume' | 'stop'
@@ -36,7 +45,7 @@ export const initialState: State = {
   totalSets: 2,
   currentSet: 1,
   timeSession: 4, //this.set1Time
-  timeSessionLeft: 4, //this.timeSession
+  timeSessionLeft: 14, //this.timeSession
   totalTimeLeft: 0,
 }
 
@@ -50,6 +59,16 @@ const appReducer = (state: State, action: Action) => {
         timeSession: state.set1Time,
         timeSessionLeft: state.timeSession,
       }
+    case 'decrement':
+      return {
+        ...state,
+        timeSessionLeft: state.timeSessionLeft--,
+      }
+    case 'setTimeSessionLeft':
+      return {
+        ...state,
+        timeSessionLeft: action.payload.timeSessionLeft,
+      }
     case 'changeStatus':
       switch (action.payload.command) {
         case 'start':
@@ -62,9 +81,16 @@ const appReducer = (state: State, action: Action) => {
         case 'pause':
           return { ...state, counterStatus: 'paused' as State['counterStatus'] }
         case 'resume':
-          return { ...state, counterStatus: 'started' as State['counterStatus'] }
+          return {
+            ...state,
+            counterStatus: 'started' as State['counterStatus'],
+          }
         case 'stop':
-          return { ...state, counterStatus: 'stopped' as State['counterStatus'], timeSessionLeft: state.timeSession }
+          return {
+            ...state,
+            counterStatus: 'stopped' as State['counterStatus'],
+            timeSessionLeft: state.timeSession,
+          }
       }
     default:
       throw new Error('Undefined action ' + action)
@@ -84,6 +110,6 @@ export const Provider = ({ children }) => {
 }
 export const useDispatch = () => useContext(DispatchCtx)
 export const useGlobalState = () => {
-  //middleware with total time calc
+  //todo middleware with total time calc
   return useContext(StateCtx)
 }

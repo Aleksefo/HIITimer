@@ -7,12 +7,12 @@
 
 import React from 'react'
 import { Provider } from './state/AppContext'
-import TestScreen from './screens/TestScreen'
+import DashboardScreen from './screens/DashboardScreen'
 
 const App = () => {
   return (
     <Provider>
-      <TestScreen />
+      <DashboardScreen />
     </Provider>
   )
 }
