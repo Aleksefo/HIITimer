@@ -22,7 +22,7 @@ class BackgroundTimer extends React.Component<Props> {
     this.stopCount()
   }
 
-  startCount = (callback, delay) => {
+  startCount = delay => {
     let initialDate = Date.now()
     this.setState({
       targetDate: initialDate + this.props.duration,

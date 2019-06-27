@@ -2,8 +2,6 @@ import React, { useEffect } from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
 import { useGlobalState, useDispatch } from '../state/AppContext'
 import { Counter } from '../components'
-import CounterF from '../components/CounterF'
-// import Counter from '../components/Counter'
 
 const DashboardScreen = () => {
   // const [text, setText] = useState()
@@ -23,63 +21,26 @@ const DashboardScreen = () => {
   }, [])
   //empty array to run only once DidMount
   //value for DidUpdate
-  const onComplete = () => {
-    console.log('onComplete: ')
-    console.log('')
-    console.log('onComplete')
-    console.log('DashboardScreen, onComplete')
-  }
+
   console.log('DashboardScreen: rendered')
   const dispatch = useDispatch()
   const state = useGlobalState()
 
   return (
     <View style={styles.container}>
-      <Text>{state.counterStatus}</Text>
-      <Text>{state.set1Time}</Text>
-      <Text>{state.set2Time}</Text>
-      <Text>{state.set3Time}</Text>
-      <Text>{state.set4Time}</Text>
-      <Text>{state.totalRounds}</Text>
-      <Text>{state.currentRound}</Text>
-      <Text>{state.totalSets}</Text>
-      <Text>{state.currentSet}</Text>
-      <Text>{state.timeSession}</Text>
+      <Text>counterStatus {state.counterStatus}</Text>
+      <Text>set1Time {state.set1Time}</Text>
+      <Text>set2Time {state.set2Time}</Text>
+      <Text>set3Time {state.set3Time}</Text>
+      <Text>set4Time {state.set4Time}</Text>
+      <Text>totalRounds {state.totalRounds}</Text>
+      <Text>currentRound {state.currentRound}</Text>
+      <Text>totalSets {state.totalSets}</Text>
+      <Text>currentSet {state.currentSet}</Text>
+      <Text>timeSession {state.timeSession}</Text>
       <Text>timeSessionLeft {state.timeSessionLeft}</Text>
-      <Text>{state.totalTimeLeft}</Text>
-      {/*<Button*/}
-      {/*title={'increment'}*/}
-      {/*onPress={() => dispatch({ type: 'resetData' })}*/}
-      {/*/>*/}
-      {/*<Button*/}
-      {/*title={'decrement'}*/}
-      {/*onPress={() =>*/}
-      {/*dispatch({ type: 'changeStatus', payload: { command: 'start' } })*/}
-      {/*}*/}
-      {/*/>*/}
-      {/*<Button*/}
-      {/*title={'start'}*/}
-      {/*onPress={() =>*/}
-      {/*(timer = Counter.setInterval(*/}
-      {/*() => console.log('DashboardScreen t, '),*/}
-      {/*1000,*/}
-      {/*))*/}
-      {/*}*/}
-      {/*/>*/}
-      {/*<Button title={'stop'} onPress={() => Counter.clearInterval(timer)} />*/}
-      {/*<Button title={'FFF'} onPress={() => CounterF.start()} />*/}
-
-      {/*<Counter*/}
-      {/*duration={state.timeSessionLeft * 1000}*/}
-      {/*onComplete={onComplete}*/}
-      {/*// onRef={ref => ('counter' = ref)}*/}
-      {/*onTick={timeRemaining => {*/}
-      {/*// timeSessionLeft = Math.round(timeRemaining / 1000)*/}
-      {/*// totalTimeLeft--*/}
-      {/*console.log('timeRemaining: ', timeRemaining)*/}
-      {/*}}*/}
-      {/*/>*/}
-      <Counter duration={5} />
+      <Text>totalTimeLeft {state.totalTimeLeft}</Text>
+      <Counter />
     </View>
   )
 }

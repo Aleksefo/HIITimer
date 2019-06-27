@@ -44,7 +44,7 @@ export const initialState: State = {
   currentRound: 1,
   totalSets: 2,
   currentSet: 1,
-  timeSession: 4, //this.set1Time
+  timeSession: 14, //this.set1Time
   timeSessionLeft: 14, //this.timeSession
   totalTimeLeft: 0,
 }

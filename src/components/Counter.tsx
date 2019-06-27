@@ -12,10 +12,24 @@ const Counter = () => {
     dispatch({ type: 'decrement' })
   }
   const start = () => {
-    counterRef.current.startCount(() => decrement(), 100)
+    counterRef.current.startCount(100)
+  }
+  const pause = () => {
+    counterRef.current.stopCount()
+  }
+  const stop = () => {
+    counterRef.current.stopCount()
+    dispatch({
+      type: 'setTimeSessionLeft',
+      payload: { timeSessionLeft: state.timeSession },
+    })
   }
   const onComplete = () => {
     console.log('Counter, onComplete')
+    dispatch({
+      type: 'setTimeSessionLeft',
+      payload: { timeSessionLeft: state.timeSession },
+    })
   }
   const onTick = timeRemaining => {
     dispatch({
@@ -34,7 +48,8 @@ const Counter = () => {
         ref={counterRef}
       />
       <Button title={'start'} onPress={() => start()} />
-      <Button title={'stop'} onPress={() => counterRef.current.stopCount()} />
+      <Button title={'pause'} onPress={() => pause()} />
+      <Button title={'stop'} onPress={() => stop()} />
     </View>
   )
 }
