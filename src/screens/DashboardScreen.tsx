@@ -26,10 +26,7 @@ const DashboardScreen = () => {
   return (
     <View style={styles.container}>
       <Text>counterStatus {state.counterStatus}</Text>
-      <Text>set1Time {state.set1Time}</Text>
-      <Text>set2Time {state.set2Time}</Text>
-      <Text>set3Time {state.set3Time}</Text>
-      <Text>set4Time {state.set4Time}</Text>
+      <Text>setsTime {state.setsTime}</Text>
       <Text>totalRounds {state.totalRounds}</Text>
       <Text>currentRound {state.currentRound}</Text>
       <Text>totalSets {state.totalSets}</Text>

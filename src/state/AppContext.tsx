@@ -2,10 +2,7 @@ import React, { useReducer, useContext, createContext, Dispatch } from 'react'
 
 type State = {
   counterStatus: 'stopped' | 'started' | 'paused'
-  set1Time: number
-  set2Time: number
-  set3Time: number
-  set4Time: number
+  setsTime: Array<number>
   totalRounds: number
   currentRound: number
   totalSets: number
@@ -19,7 +16,19 @@ type Action =
       type: 'resetData'
     }
   | {
-      type: 'decrement'
+      type: 'increaseCurrentSet'
+    }
+  | {
+      type: 'resetCurrentSet'
+    }
+  | {
+      type: 'increaseCurrentRound'
+    }
+  | {
+      type: 'setTimeSession'
+      payload: {
+        time: number
+      }
     }
   | {
       type: 'setTimeSessionLeft'
@@ -36,34 +45,52 @@ type Action =
 //todo save values to storage
 export const initialState: State = {
   counterStatus: 'stopped',
-  set1Time: 4,
-  set2Time: 7,
-  set3Time: 5,
-  set4Time: 5,
+  setsTime: [4, 7, 5, 5],
   totalRounds: 2,
   currentRound: 1,
   totalSets: 2,
   currentSet: 1,
-  timeSession: 14, //this.set1Time
-  timeSessionLeft: 14, //this.timeSession
+  timeSession: 4, //this.set1Time
+  timeSessionLeft: 4, //this.timeSession
   totalTimeLeft: 0,
 }
 
 const appReducer = (state: State, action: Action) => {
+  console.log('AppContext, appReducer', action)
   switch (action.type) {
     case 'resetData':
       return {
         ...state,
         currentSet: 1,
         currentRound: 1,
-        timeSession: state.set1Time,
-        timeSessionLeft: state.timeSession,
+        timeSession: state.setsTime[0],
+        timeSessionLeft: state.setsTime[0],
       }
-    case 'decrement':
+    case 'increaseCurrentSet':
       return {
         ...state,
-        timeSessionLeft: state.timeSessionLeft--,
+        timeSession: state.setsTime[state.currentSet], //NOTE it's +1 in array
+        timeSessionLeft: state.setsTime[state.currentSet],
+        currentSet: state.currentSet + 1,
       }
+    case 'resetCurrentSet':
+      return {
+        ...state,
+        currentSet: 1,
+        timeSession: state.setsTime[0],
+        timeSessionLeft: state.setsTime[0],
+      }
+    case 'increaseCurrentRound':
+      return {
+        ...state,
+        currentRound: state.currentRound + 1,
+      }
+    // case 'setTimeSession':
+    //   return {
+    //     ...state,
+    //     timeSession: action.payload.time,
+    //     timeSessionLeft: action.payload.time,
+    //   }
     case 'setTimeSessionLeft':
       return {
         ...state,
@@ -75,8 +102,8 @@ const appReducer = (state: State, action: Action) => {
           return {
             ...state,
             counterStatus: 'started' as 'started',
-            timeSessionLeft: state.set1Time,
-            timeSession: state.set1Time,
+            timeSession: state.setsTime[0],
+            timeSessionLeft: state.setsTime[0],
           }
         case 'pause':
           return { ...state, counterStatus: 'paused' as State['counterStatus'] }

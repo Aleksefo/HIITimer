@@ -11,7 +11,7 @@ const Counter = () => {
   const counterRef = useRef(null)
 
   const startCount = () => {
-    counterRef.current.startCount(100)
+    counterRef.current.startCount(1000)
     dispatch({
       type: 'changeStatus',
       payload: { command: 'start' },
@@ -25,7 +25,7 @@ const Counter = () => {
     })
   }
   const resumeCount = () => {
-    counterRef.current.startCount(100)
+    counterRef.current.startCount(1000)
     dispatch({
       type: 'changeStatus',
       payload: { command: 'resume' },
@@ -43,14 +43,32 @@ const Counter = () => {
     })
   }
   const onComplete = () => {
-    dispatch({
-      type: 'changeStatus',
-      payload: { command: 'stop' },
-    })
-    dispatch({
-      type: 'setTimeSessionLeft',
-      payload: { timeSessionLeft: state.timeSession },
-    })
+    if (
+      state.currentRound === state.totalRounds &&
+      state.currentSet === state.totalSets
+    ) {
+      dispatch({
+        type: 'changeStatus',
+        payload: { command: 'stop' },
+      })
+      dispatch({
+        type: 'resetData',
+      })
+    } else {
+      if (state.currentSet === state.totalSets) {
+        dispatch({
+          type: 'resetCurrentSet',
+        })
+        dispatch({
+          type: 'increaseCurrentRound',
+        })
+      } else {
+        dispatch({
+          type: 'increaseCurrentSet',
+        })
+      }
+      resumeCount()
+    }
   }
   const onTick = timeRemaining => {
     dispatch({
