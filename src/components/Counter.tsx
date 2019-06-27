@@ -1,7 +1,8 @@
 import React, { useRef } from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Text } from 'react-native'
 import BackgroundTimer from './BackgroundTimer'
 import { useDispatch, useGlobalState } from '../state/AppContext'
+import CounterControls from './CounterControls'
 
 const Counter = () => {
   const dispatch = useDispatch()
@@ -9,28 +10,28 @@ const Counter = () => {
 
   const counterRef = useRef(null)
 
-  const start = () => {
+  const startCount = () => {
     counterRef.current.startCount(100)
     dispatch({
       type: 'changeStatus',
       payload: { command: 'start' },
     })
   }
-  const pause = () => {
+  const pauseCount = () => {
     counterRef.current.stopCount()
     dispatch({
       type: 'changeStatus',
       payload: { command: 'pause' },
     })
   }
-  const resume = () => {
+  const resumeCount = () => {
     counterRef.current.startCount(100)
     dispatch({
       type: 'changeStatus',
       payload: { command: 'resume' },
     })
   }
-  const stop = () => {
+  const stopCount = () => {
     counterRef.current.stopCount()
     dispatch({
       type: 'changeStatus',
@@ -67,10 +68,12 @@ const Counter = () => {
         onTick={timeLeft => onTick(timeLeft)}
         ref={counterRef}
       />
-      <Button title={'start'} onPress={() => start()} />
-      <Button title={'pause'} onPress={() => pause()} />
-      <Button title={'resume'} onPress={() => resume()} />
-      <Button title={'stop'} onPress={() => stop()} />
+      <CounterControls
+        startCount={startCount}
+        pauseCount={pauseCount}
+        resumeCount={resumeCount}
+        stopCount={stopCount}
+      />
     </View>
   )
 }
