@@ -1,6 +1,8 @@
 import React from 'react'
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { useGlobalState } from '../state/AppContext'
+import ControlsButton from './ControlsButton'
+import str from '../values/strings'
 
 type Props = {
   startCount: () => void
@@ -16,18 +18,27 @@ const CounterControls = (props: Props) => {
   let stopBtn
 
   state.counterStatus === 'stopped'
-    ? (startBtn = <Button title={'start'} onPress={() => props.startCount()} />)
+    ? (startBtn = (
+        <ControlsButton title={str.start} onPress={() => props.startCount()} />
+      ))
     : null
   state.counterStatus === 'started'
-    ? (pauseBtn = <Button title={'pause'} onPress={() => props.pauseCount()} />)
+    ? (pauseBtn = (
+        <ControlsButton title={str.pause} onPress={() => props.pauseCount()} />
+      ))
     : null
   state.counterStatus === 'paused'
     ? (resumeBtn = (
-        <Button title={'resume'} onPress={() => props.resumeCount()} />
+        <ControlsButton
+          title={str.resume}
+          onPress={() => props.resumeCount()}
+        />
       ))
     : null
   if (state.counterStatus === 'paused' || state.counterStatus === 'started') {
-    stopBtn = <Button title={'stop'} onPress={() => props.stopCount()} />
+    stopBtn = (
+      <ControlsButton title={str.stop} onPress={() => props.stopCount()} />
+    )
   }
   const {} = styles
   return (
