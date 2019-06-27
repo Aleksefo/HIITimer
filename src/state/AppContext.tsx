@@ -48,6 +48,12 @@ type Action =
   | {
       type: 'updateTotalTime'
     }
+  | {
+      type: 'changeSetAmount'
+      payload: {
+        amount: number
+      }
+    }
 //todo save values to storage
 export const initialState: State = {
   counterStatus: 'stopped',
@@ -142,6 +148,11 @@ const appReducer = (state: State, action: Action) => {
       return {
         ...state,
         totalTimeLeft: state.totalTimeLeft - 1,
+      }
+    case 'changeSetAmount':
+      return {
+        ...state,
+        totalSets: action.payload.amount,
       }
     default:
       throw new Error('Undefined action ' + action)

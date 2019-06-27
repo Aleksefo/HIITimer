@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { useGlobalState } from '../state/AppContext'
-import { Counter } from '../components'
+import { Counter, SessionConfigurator } from '../components'
 
 const DashboardScreen = () => {
   // const [text, setText] = useState()
@@ -25,6 +25,7 @@ const DashboardScreen = () => {
 
   return (
     <View style={styles.container}>
+      <SessionConfigurator />
       <Text>counterStatus {state.counterStatus}</Text>
       <Text>setsTime {state.setsTime}</Text>
       <Text>totalRounds {state.totalRounds}</Text>
