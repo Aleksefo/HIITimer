@@ -11,19 +11,41 @@ const Counter = () => {
 
   const start = () => {
     counterRef.current.startCount(100)
+    dispatch({
+      type: 'changeStatus',
+      payload: { command: 'start' },
+    })
   }
   const pause = () => {
     counterRef.current.stopCount()
+    dispatch({
+      type: 'changeStatus',
+      payload: { command: 'pause' },
+    })
+  }
+  const resume = () => {
+    counterRef.current.startCount(100)
+    dispatch({
+      type: 'changeStatus',
+      payload: { command: 'resume' },
+    })
   }
   const stop = () => {
     counterRef.current.stopCount()
+    dispatch({
+      type: 'changeStatus',
+      payload: { command: 'stop' },
+    })
     dispatch({
       type: 'setTimeSessionLeft',
       payload: { timeSessionLeft: state.timeSession },
     })
   }
   const onComplete = () => {
-    console.log('Counter, onComplete')
+    dispatch({
+      type: 'changeStatus',
+      payload: { command: 'stop' },
+    })
     dispatch({
       type: 'setTimeSessionLeft',
       payload: { timeSessionLeft: state.timeSession },
@@ -47,6 +69,7 @@ const Counter = () => {
       />
       <Button title={'start'} onPress={() => start()} />
       <Button title={'pause'} onPress={() => pause()} />
+      <Button title={'resume'} onPress={() => resume()} />
       <Button title={'stop'} onPress={() => stop()} />
     </View>
   )

@@ -1,7 +1,7 @@
 import React, { useReducer, useContext, createContext, Dispatch } from 'react'
 
 type State = {
-  counterStatus: 'stopped' | 'started' | 'paused' | 'done'
+  counterStatus: 'stopped' | 'started' | 'paused'
   set1Time: number
   set2Time: number
   set3Time: number
