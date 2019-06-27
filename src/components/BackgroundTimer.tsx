@@ -1,7 +1,7 @@
 import _BackgroundTimer from 'react-native-background-timer'
 import React from 'react'
 
-interface Props {
+type Props = {
   ref: any
   duration: number
   onComplete: () => void
@@ -9,7 +9,6 @@ interface Props {
 }
 
 class BackgroundTimer extends React.Component<Props> {
-  //todo add delay/period optional prop
   backgroundTimer
   initialDate = Date.now()
 
@@ -54,5 +53,8 @@ class BackgroundTimer extends React.Component<Props> {
     return null
   }
 }
-
+//todo add delay/period optional prop
+//todo maybe check if first second doesn't count
+//todo round onTick based on prop. countType='seconds', ms, m, h, should return array
+//todo add pause/resume https://github.com/avid21/react-native-timer-countdown/issues/6
 export default BackgroundTimer

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import BackgroundTimer from './BackgroundTimer'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 
@@ -12,9 +12,7 @@ const Counter = () => {
     dispatch({ type: 'decrement' })
   }
   const start = () => {
-    if (counterRef) {
-      counterRef.current.startCount(() => decrement(), 500)
-    }
+    counterRef.current.startCount(() => decrement(), 100)
   }
   const onComplete = () => {
     console.log('Counter, onComplete')
@@ -40,9 +38,5 @@ const Counter = () => {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  styleTop: {},
-})
 
 export default Counter
