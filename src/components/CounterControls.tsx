@@ -10,10 +10,10 @@ type Props = {
 }
 const CounterControls = (props: Props) => {
   const state = useGlobalState()
-  let startBtn = null
-  let pauseBtn = null
-  let resumeBtn = null
-  let stopBtn = null
+  let startBtn
+  let pauseBtn
+  let resumeBtn
+  let stopBtn
 
   state.counterStatus === 'stopped'
     ? (startBtn = <Button title={'start'} onPress={() => props.startCount()} />)

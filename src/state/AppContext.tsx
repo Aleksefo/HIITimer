@@ -54,6 +54,13 @@ type Action =
         amount: number
       }
     }
+  | {
+      type: 'changeSetDuration'
+      payload: {
+        setNumber: number
+        duration: number
+      }
+    }
 //todo save values to storage
 export const initialState: State = {
   counterStatus: 'stopped',
@@ -153,6 +160,14 @@ const appReducer = (state: State, action: Action) => {
       return {
         ...state,
         totalSets: action.payload.amount,
+      }
+    //todo prohibit to go below 0 in changeSetDuration
+    case 'changeSetDuration':
+      let setsTime = [...state.setsTime]
+      setsTime.splice(action.payload.setNumber, 1, action.payload.duration)
+      return {
+        ...state,
+        setsTime: setsTime,
       }
     default:
       throw new Error('Undefined action ' + action)
