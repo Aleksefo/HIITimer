@@ -42,13 +42,19 @@ type Action =
         command: 'start' | 'pause' | 'resume' | 'stop'
       }
     }
+  | {
+      type: 'calculateTotalTime'
+    }
+  | {
+      type: 'updateTotalTime'
+    }
 //todo save values to storage
 export const initialState: State = {
   counterStatus: 'stopped',
   setsTime: [4, 7, 5, 5],
   totalRounds: 2,
   currentRound: 1,
-  totalSets: 2,
+  totalSets: 4,
   currentSet: 1,
   timeSession: 4, //this.set1Time
   timeSessionLeft: 4, //this.timeSession
@@ -118,6 +124,24 @@ const appReducer = (state: State, action: Action) => {
             counterStatus: 'stopped' as State['counterStatus'],
             timeSessionLeft: state.timeSession,
           }
+      }
+    case 'calculateTotalTime':
+      let totalTime = state.setsTime[0] + state.setsTime[1]
+      if (state.totalSets > 2) {
+        totalTime += state.setsTime[2]
+      }
+      if (state.totalSets > 3) {
+        totalTime += state.setsTime[3]
+      }
+      totalTime *= state.totalRounds
+      return {
+        ...state,
+        totalTimeLeft: totalTime,
+      }
+    case 'updateTotalTime':
+      return {
+        ...state,
+        totalTimeLeft: state.totalTimeLeft - 1,
       }
     default:
       throw new Error('Undefined action ' + action)

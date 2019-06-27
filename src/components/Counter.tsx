@@ -11,11 +11,14 @@ const Counter = () => {
   const counterRef = useRef(null)
 
   const startCount = () => {
-    counterRef.current.startCount(1000)
     dispatch({
       type: 'changeStatus',
       payload: { command: 'start' },
     })
+    dispatch({
+      type: 'calculateTotalTime',
+    })
+    counterRef.current.startCount(1000)
   }
   const pauseCount = () => {
     counterRef.current.stopCount()
@@ -70,13 +73,16 @@ const Counter = () => {
       resumeCount()
     }
   }
-  const onTick = timeRemaining => {
+  const onTick = timeLeft => {
     dispatch({
       type: 'setTimeSessionLeft',
-      payload: { timeSessionLeft: Math.round(timeRemaining / 1000) },
+      payload: { timeSessionLeft: Math.round(timeLeft / 1000) },
+    })
+    dispatch({
+      type: 'updateTotalTime',
     })
   }
-
+  //todo maybe improve total time calculations based on time diff(not time left) tick provides
   return (
     <View>
       <Text>Counter component</Text>
