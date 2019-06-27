@@ -1,16 +1,14 @@
 import React, { useEffect } from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
-import { useGlobalState, useDispatch } from '../state/AppContext'
+import { StyleSheet, Text, View } from 'react-native'
+import { useGlobalState } from '../state/AppContext'
 import { Counter } from '../components'
 
 const DashboardScreen = () => {
   // const [text, setText] = useState()
   // const [userData, setUserData] = useState({ name: 'Max', age: 28 })
-  let timer
 
   useEffect(() => {
     console.log('DashboardScreen, useEffect')
-    // timer = Counter.setInterval(() => console.log('DashboardScreen t, '), 1000)
     return () => {
       // Cleanup work goes in here
       // If you return a function, that function will be executed right before
@@ -23,7 +21,6 @@ const DashboardScreen = () => {
   //value for DidUpdate
 
   console.log('DashboardScreen: rendered')
-  const dispatch = useDispatch()
   const state = useGlobalState()
 
   return (

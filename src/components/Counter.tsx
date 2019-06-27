@@ -8,9 +8,7 @@ const Counter = () => {
   const state = useGlobalState()
 
   const counterRef = useRef(null)
-  const decrement = () => {
-    dispatch({ type: 'decrement' })
-  }
+
   const start = () => {
     counterRef.current.startCount(100)
   }
