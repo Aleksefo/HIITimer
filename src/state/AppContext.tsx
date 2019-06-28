@@ -67,7 +67,6 @@ type Action =
         amount: number
       }
     }
-//todo save values to storage
 export const initialState: State = {
   counterStatus: 'stopped',
   setsTime: [4, 7, 5, 5],
@@ -175,7 +174,7 @@ const appReducer = (state: State, action: Action) => {
         ...state,
         setsTime: setsTime,
       }
-    //todo prohibit to go below 0 in changeRoundsAmount
+    //todo prohibit to go below 1 in changeRoundsAmount
     case 'changeRoundsAmount':
       return {
         ...state,

@@ -26,7 +26,7 @@ const SessionConfigurator = () => {
 }
 
 const styles = StyleSheet.create({
-  containerStyle: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  containerStyle: { justifyContent: 'center', alignItems: 'center' },
   selectorContainerStyle: { flexDirection: 'row', alignItems: 'center' },
 })
 

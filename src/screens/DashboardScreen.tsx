@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { useGlobalState } from '../state/AppContext'
-import { Counter, SessionConfigurator, SessionActivated } from '../components'
+import {
+  Counter,
+  SessionConfigurator,
+  SessionActivated,
+  TotalTime,
+} from '../components'
 
 const DashboardScreen = () => {
   // const [text, setText] = useState()
@@ -30,15 +35,16 @@ const DashboardScreen = () => {
       ) : (
         <SessionActivated />
       )}
-      <Text>counterStatus {state.counterStatus}</Text>
-      <Text>setsTime {state.setsTime}</Text>
-      <Text>totalRounds {state.totalRounds}</Text>
-      <Text>currentRound {state.currentRound}</Text>
-      <Text>totalSets {state.totalSets}</Text>
-      <Text>currentSet {state.currentSet}</Text>
-      <Text>timeSession {state.timeSession}</Text>
-      <Text>timeSessionLeft {state.timeSessionLeft}</Text>
-      <Text>totalTimeLeft {state.totalTimeLeft}</Text>
+      <TotalTime />
+      {/*<Text>counterStatus {state.counterStatus}</Text>*/}
+      {/*<Text>setsTime {state.setsTime}</Text>*/}
+      {/*<Text>totalRounds {state.totalRounds}</Text>*/}
+      {/*<Text>currentRound {state.currentRound}</Text>*/}
+      {/*<Text>totalSets {state.totalSets}</Text>*/}
+      {/*<Text>currentSet {state.currentSet}</Text>*/}
+      {/*<Text>timeSession {state.timeSession}</Text>*/}
+      {/*<Text>timeSessionLeft {state.timeSessionLeft}</Text>*/}
+      {/*<Text>totalTimeLeft {state.totalTimeLeft}</Text>*/}
       <Counter />
     </View>
   )
