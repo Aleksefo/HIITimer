@@ -1,12 +1,14 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, Text } from 'react-native'
 import { ss, styled } from '../values/theme'
-import { useDispatch } from '../state/AppContext'
+import { useDispatch, useGlobalState } from '../state/AppContext'
 
 const SetAmountSelector = props => {
   const dispatch = useDispatch()
+  const state = useGlobalState()
 
-  const { selectorStyle } = styles
+  const selectedStyle =
+    state.totalSets === props.amount ? styles.selected : styles.notSelected
   return (
     <TouchableOpacity
       onPress={() => {
@@ -16,13 +18,14 @@ const SetAmountSelector = props => {
         })
       }}
     >
-      <Text style={[styled.textTitleStyle, selectorStyle]}>{props.amount}</Text>
+      <Text style={[styled.textTitleStyle, selectedStyle]}>{props.amount}</Text>
     </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
-  selectorStyle: { fontSize: ss(18), margin: ss(5) },
+  notSelected: { fontSize: ss(18), margin: ss(5) },
+  selected: { fontSize: ss(18), margin: ss(5), fontWeight: 'bold' },
 })
 
 export default SetAmountSelector
