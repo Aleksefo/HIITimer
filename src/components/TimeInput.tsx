@@ -6,22 +6,36 @@ import { useDispatch, useGlobalState } from '../state/AppContext'
 const TimeInput = props => {
   const dispatch = useDispatch()
   const state = useGlobalState()
-
+  //todo check android numerical keyboard for negatives
+  const changeInput = (value: string) => {
+    let number = parseInt(value)
+    if (Number.isInteger(number) && number >= 0) {
+      dispatch({
+        type: 'changeSetDuration',
+        payload: {
+          setNumber: props.setNumber,
+          duration: number,
+        },
+      })
+    } else {
+      dispatch({
+        type: 'changeSetDuration',
+        payload: {
+          setNumber: props.setNumber,
+          duration: 1,
+        },
+      })
+    }
+  }
   const { containerStyle } = styles
   return (
     <View style={containerStyle}>
       <TextInput
         style={styled.textTitleStyle}
         keyboardType={'numeric'}
-        placeholder={state.setsTime[props.setNumber].toString()}
+        value={state.setsTime[props.setNumber].toString()}
         onChangeText={text => {
-          dispatch({
-            type: 'changeSetDuration',
-            payload: {
-              setNumber: props.setNumber,
-              duration: parseInt(text),
-            },
-          })
+          changeInput(text)
         }}
       />
     </View>

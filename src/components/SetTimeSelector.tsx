@@ -10,20 +10,33 @@ const SetTimeSelector = props => {
   const dispatch = useDispatch()
   const state = useGlobalState()
 
+  const decrement = () => {
+    dispatch({
+      type: 'changeSetDuration',
+      payload: {
+        setNumber: setNumber - 1,
+        duration: state.setsTime[setNumber - 1] - 1,
+      },
+    })
+  }
+  const increment = () => {
+    dispatch({
+      type: 'changeSetDuration',
+      payload: {
+        setNumber: setNumber - 1,
+        duration: state.setsTime[setNumber - 1] + 1,
+      },
+    })
+  }
   const { containerStyle, timeControlsContainerStyle } = styles
   return (
     <View style={containerStyle}>
       <Text style={styled.textTitleStyle}>{`${str.set} ${setNumber}`}</Text>
       <View style={timeControlsContainerStyle}>
         <TouchableOpacity
+          disabled={state.setsTime[setNumber - 1] <= 1}
           onPress={() => {
-            dispatch({
-              type: 'changeSetDuration',
-              payload: {
-                setNumber: setNumber - 1,
-                duration: state.setsTime[setNumber - 1] - 1,
-              },
-            })
+            decrement()
           }}
         >
           <Text style={styled.textTitleStyle}>-</Text>
@@ -31,13 +44,7 @@ const SetTimeSelector = props => {
         <TimeInput setNumber={setNumber - 1} />
         <TouchableOpacity
           onPress={() => {
-            dispatch({
-              type: 'changeSetDuration',
-              payload: {
-                setNumber: setNumber - 1,
-                duration: state.setsTime[setNumber - 1] + 1,
-              },
-            })
+            increment()
           }}
         >
           <Text style={styled.textTitleStyle}>+</Text>

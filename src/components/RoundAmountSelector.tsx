@@ -7,19 +7,32 @@ import { useDispatch, useGlobalState } from '../state/AppContext'
 const RoundAmountSelector = () => {
   const dispatch = useDispatch()
   const state = useGlobalState()
+
+  const decrement = () => {
+    dispatch({
+      type: 'changeRoundsAmount',
+      payload: {
+        amount: state.totalRounds - 1,
+      },
+    })
+  }
+  const increment = () => {
+    dispatch({
+      type: 'changeRoundsAmount',
+      payload: {
+        amount: state.totalRounds + 1,
+      },
+    })
+  }
   const { roundControlsContainerStyle } = styles
   return (
     <View>
       <Text style={styled.textTitleStyle}>{`${str.rounds}`}</Text>
       <View style={roundControlsContainerStyle}>
         <TouchableOpacity
+          disabled={state.totalRounds <= 1}
           onPress={() => {
-            dispatch({
-              type: 'changeRoundsAmount',
-              payload: {
-                amount: state.totalRounds - 1,
-              },
-            })
+            decrement()
           }}
         >
           <Text style={styled.textTitleStyle}>-</Text>
@@ -27,12 +40,7 @@ const RoundAmountSelector = () => {
         <Text>{state.totalRounds}</Text>
         <TouchableOpacity
           onPress={() => {
-            dispatch({
-              type: 'changeRoundsAmount',
-              payload: {
-                amount: state.totalRounds + 1,
-              },
-            })
+            increment()
           }}
         >
           <Text style={styled.textTitleStyle}>+</Text>
