@@ -79,7 +79,7 @@ export const initialState: State = {
   totalTimeLeft: 0,
 }
 
-const appReducer = (state: State, action: Action) => {
+const appReducer = (state: State, action: Action): State => {
   console.log('AppContext, appReducer', action)
   switch (action.type) {
     case 'resetData':
