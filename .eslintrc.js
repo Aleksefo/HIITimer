@@ -2,7 +2,8 @@ module.exports = {
   parser: '@typescript-eslint/parser', // Specifies the ESLint parser
   extends: [
     'plugin:react/recommended', // Uses the recommended rules from @eslint-plugin-react
-    // 'plugin:@typescript-eslint/recommended', // Uses the recommended rules from @typescript-eslint/eslint-plugin
+    'plugin:@typescript-eslint/recommended', // Uses the recommended rules from @typescript-eslint/eslint-plugin
+    'prettier/@typescript-eslint',
     'plugin:prettier/recommended', // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
   ],
   parserOptions: {
@@ -23,7 +24,7 @@ module.exports = {
     'react-native/no-unused-styles': 2,
     'react-native/no-inline-styles': 2,
     'react-native/no-color-literals': 2,
-    // 'react-native/no-raw-text': 2,
+    'react-native/no-raw-text': 2,
   },
   settings: {
     react: {
