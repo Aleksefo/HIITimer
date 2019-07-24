@@ -28,6 +28,8 @@ target 'HIITimer' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  pod 'react-native-background-timer', :path => '../node_modules/react-native-background-timer'
+
   target 'HIITimerTests' do
     inherit! :search_paths
     # Pods for testing
@@ -36,3 +38,12 @@ target 'HIITimer' do
   use_native_modules!
 end
 
+target 'HIITimer-tvOS' do
+  # Pods for HIITimer-tvOS
+
+  target 'HIITimer-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
