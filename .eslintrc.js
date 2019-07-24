@@ -24,7 +24,13 @@ module.exports = {
     'react-native/no-unused-styles': 2,
     'react-native/no-inline-styles': 2,
     'react-native/no-color-literals': 2,
-    'react-native/no-raw-text': 2,
+    // 'react-native/no-raw-text': 2,
+    '@typescript-eslint/prefer-interface': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
+    '@typescript-eslint/explicit-member-accessibility': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    'react/prop-types': 0,
   },
   settings: {
     react: {

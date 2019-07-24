@@ -2,7 +2,7 @@ import React, { useReducer, useContext, createContext, Dispatch } from 'react'
 
 type State = {
   counterStatus: 'stopped' | 'started' | 'paused'
-  setsTime: Array<number>
+  setsTime: number[]
   totalRounds: number
   currentRound: number
   totalSets: number

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { useGlobalState } from '../state/AppContext'
 import ControlsButton from './ControlsButton'
 import str from '../values/strings'
@@ -43,7 +43,6 @@ const CounterControls = (props: Props) => {
   const {} = styles
   return (
     <View>
-      <Text>CounterControls component</Text>
       {startBtn}
       {pauseBtn}
       {resumeBtn}

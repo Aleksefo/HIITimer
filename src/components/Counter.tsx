@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import BackgroundTimer from './BackgroundTimer'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import CounterControls from './CounterControls'
@@ -85,7 +85,6 @@ const Counter = () => {
   //todo maybe improve total time calculations based on time diff(not time left) tick provides
   return (
     <View>
-      <Text>Counter component</Text>
       <BackgroundTimer
         duration={state.timeSessionLeft * 1000}
         onComplete={onComplete}
