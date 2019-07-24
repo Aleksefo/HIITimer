@@ -18,6 +18,9 @@ const SetTimeSelector = props => {
         duration: state.setsTime[setNumber - 1] - 1,
       },
     })
+    dispatch({
+      type: 'calculateTotalTime',
+    })
   }
   const increment = () => {
     dispatch({
@@ -26,6 +29,9 @@ const SetTimeSelector = props => {
         setNumber: setNumber - 1,
         duration: state.setsTime[setNumber - 1] + 1,
       },
+    })
+    dispatch({
+      type: 'calculateTotalTime',
     })
   }
   const { containerStyle, timeControlsContainerStyle } = styles

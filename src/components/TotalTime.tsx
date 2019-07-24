@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { View, Text } from 'react-native'
 import str from '../values/strings'
-import { useGlobalState } from '../state/AppContext'
+import { useDispatch, useGlobalState } from '../state/AppContext'
 
 const TotalTime = () => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch({
+      type: 'calculateTotalTime',
+    })
+  }, [])
+
   const { counterStatus, totalTimeLeft } = useGlobalState()
   let minutes: number | string
   let seconds: number | string

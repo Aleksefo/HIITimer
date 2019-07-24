@@ -16,6 +16,9 @@ const SetAmountSelector = props => {
           type: 'changeSetAmount',
           payload: { amount: props.amount },
         })
+        dispatch({
+          type: 'calculateTotalTime',
+        })
       }}
     >
       <Text style={[styled.textTitleStyle, selectedStyle]}>{props.amount}</Text>

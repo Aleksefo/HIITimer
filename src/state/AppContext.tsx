@@ -166,7 +166,6 @@ const appReducer = (state: State, action: Action): State => {
         ...state,
         totalSets: action.payload.amount,
       }
-    //todo prohibit to go below 0 in changeSetDuration
     case 'changeSetDuration':
       let setsTime = [...state.setsTime]
       setsTime.splice(action.payload.setNumber, 1, action.payload.duration)
@@ -174,7 +173,6 @@ const appReducer = (state: State, action: Action): State => {
         ...state,
         setsTime: setsTime,
       }
-    //todo prohibit to go below 1 in changeRoundsAmount
     case 'changeRoundsAmount':
       return {
         ...state,

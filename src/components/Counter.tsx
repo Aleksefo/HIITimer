@@ -41,8 +41,10 @@ const Counter = () => {
       payload: { command: 'stop' },
     })
     dispatch({
-      type: 'setTimeSessionLeft',
-      payload: { timeSessionLeft: state.timeSession },
+      type: 'resetData',
+    })
+    dispatch({
+      type: 'calculateTotalTime',
     })
   }
   const onComplete = () => {
@@ -50,13 +52,7 @@ const Counter = () => {
       state.currentRound === state.totalRounds &&
       state.currentSet === state.totalSets
     ) {
-      dispatch({
-        type: 'changeStatus',
-        payload: { command: 'stop' },
-      })
-      dispatch({
-        type: 'resetData',
-      })
+      stopCount()
     } else {
       if (state.currentSet === state.totalSets) {
         dispatch({

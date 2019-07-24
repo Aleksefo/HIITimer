@@ -26,6 +26,9 @@ const TimeInput = props => {
         },
       })
     }
+    dispatch({
+      type: 'calculateTotalTime',
+    })
   }
   const { containerStyle } = styles
   return (

@@ -15,6 +15,9 @@ const RoundAmountSelector = () => {
         amount: state.totalRounds - 1,
       },
     })
+    dispatch({
+      type: 'calculateTotalTime',
+    })
   }
   const increment = () => {
     dispatch({
@@ -22,6 +25,9 @@ const RoundAmountSelector = () => {
       payload: {
         amount: state.totalRounds + 1,
       },
+    })
+    dispatch({
+      type: 'calculateTotalTime',
     })
   }
   const { roundControlsContainerStyle } = styles
