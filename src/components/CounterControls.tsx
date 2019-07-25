@@ -1,8 +1,9 @@
 import React from 'react'
-import { View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { useGlobalState } from '../state/AppContext'
 import ControlsButton from './ControlsButton'
 import str from '../values/strings'
+import Theme from '../values/Theme'
 
 type Props = {
   startCount: () => void
@@ -41,7 +42,7 @@ const CounterControls = (props: Props) => {
     )
   }
   return (
-    <View>
+    <View style={s.container}>
       {startBtn}
       {pauseBtn}
       {resumeBtn}
@@ -49,5 +50,13 @@ const CounterControls = (props: Props) => {
     </View>
   )
 }
+const s = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: Theme.w,
+    flex: 1,
+  },
+})
 
 export default CounterControls

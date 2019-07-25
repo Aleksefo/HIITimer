@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
+    flex: 1,
   },
   buttonTitle: {
     ...Theme.fonts.h1,

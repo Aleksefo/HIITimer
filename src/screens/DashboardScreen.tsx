@@ -30,22 +30,15 @@ const DashboardScreen = () => {
 
   return (
     <View style={styles.container}>
-      {state.counterStatus === 'stopped' ? (
-        <SessionConfigurator />
-      ) : (
-        <SessionActivated />
-      )}
+      <View style={styles.main}>
+        {state.counterStatus === 'stopped' ? (
+          <SessionConfigurator />
+        ) : (
+          <SessionActivated />
+        )}
+      </View>
       <TotalTime />
-      {/*<Text>counterStatus {state.counterStatus}</Text>*/}
-      {/*<Text>setsTime {state.setsTime}</Text>*/}
-      {/*<Text>totalRounds {state.totalRounds}</Text>*/}
-      {/*<Text>currentRound {state.currentRound}</Text>*/}
-      {/*<Text>totalSets {state.totalSets}</Text>*/}
-      {/*<Text>currentSet {state.currentSet}</Text>*/}
-      {/*<Text>timeSession {state.timeSession}</Text>*/}
-      {/*<Text>timeSessionLeft {state.timeSessionLeft}</Text>*/}
-      {/*<Text>totalTimeLeft {state.totalTimeLeft}</Text>*/}
-      <Counter />
+      <Counter style={styles.counter} />
     </View>
   )
 }
@@ -61,5 +54,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  counter: {
+    flex: 1,
+  },
+  main: {
+    flex: 4,
+    justifyContent: 'center',
   },
 })
