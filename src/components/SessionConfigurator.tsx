@@ -18,10 +18,13 @@ const SessionConfigurator = () => {
       </View>
       <Spacing s />
       <RoundAmountSelector />
-      <Spacing s />
+      <Spacing m />
       <SetTimeSelector setNumber={1} />
+      <Spacing s />
       <SetTimeSelector setNumber={2} />
+      <Spacing s />
       <SetTimeSelector setNumber={3} />
+      <Spacing s />
       <SetTimeSelector setNumber={4} />
     </View>
   )

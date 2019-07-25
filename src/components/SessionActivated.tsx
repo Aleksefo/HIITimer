@@ -1,8 +1,9 @@
 import React from 'react'
-import { StyleSheet, Text } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import str from '../values/strings'
 import { useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
+import { Spacing } from './index'
 
 const SessionActivated = () => {
   const {
@@ -19,19 +20,25 @@ const SessionActivated = () => {
   seconds = timeSessionLeft % 60
   if (seconds < 10) seconds = '0' + seconds
   return (
-    <>
+    <View style={s.container}>
+      <Text style={s.time}>{`${minutes}:${seconds}`}</Text>
       <Text style={s.title}>{`${str.set} ${currentSet}/${totalSets}`}</Text>
-      <Text style={s.title}>{`${minutes}:${seconds}`}</Text>
       <Text
         style={s.title}
       >{`${str.round} ${currentRound}/${totalRounds}`}</Text>
-    </>
+      <Spacing xl />
+    </View>
   )
 }
 
 const s = StyleSheet.create({
-  title: { ...Theme.fonts.bodyLarge },
-  titled: { ...Theme.fonts.bodyLarge },
+  container: {
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    flex: 1,
+  },
+  title: { ...Theme.fonts.h3 },
+  time: { ...Theme.fonts.h1 },
 })
 
 export default SessionActivated
