@@ -36,7 +36,7 @@ const SetTimeSelector = props => {
   }
   return (
     <>
-      <Text style={s.title}>{`${str.set} ${setNumber}`}</Text>
+      <Text style={s.title}>{`${str.set.toUpperCase()} ${setNumber}`}</Text>
       <View style={s.timeControlsContainer}>
         <TouchableOpacity
           disabled={state.setsTime[setNumber - 1] <= 1}

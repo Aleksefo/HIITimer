@@ -5,21 +5,24 @@ import SetTimeSelector from './SetTimeSelector'
 import RoundAmountSelector from './RoundAmountSelector'
 import str from '../values/strings'
 import Theme from '../values/Theme'
+import { Spacing } from './index'
 
 const SessionConfigurator = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.sets}>{str.sets}</Text>
+      <Text style={styles.sets}>{str.sets.toUpperCase()}</Text>
       <View style={styles.selectorContainer}>
         <SetAmountSelector amount={2} />
         <SetAmountSelector amount={3} />
         <SetAmountSelector amount={4} />
       </View>
+      <Spacing s />
+      <RoundAmountSelector />
+      <Spacing s />
       <SetTimeSelector setNumber={1} />
       <SetTimeSelector setNumber={2} />
       <SetTimeSelector setNumber={3} />
       <SetTimeSelector setNumber={4} />
-      <RoundAmountSelector />
     </View>
   )
 }
@@ -28,7 +31,7 @@ const styles = StyleSheet.create({
   container: { justifyContent: 'center', alignItems: 'center' },
   selectorContainer: { flexDirection: 'row', alignItems: 'center' },
   sets: {
-    ...Theme.fonts.h3,
+    ...Theme.fonts.h2,
   },
 })
 

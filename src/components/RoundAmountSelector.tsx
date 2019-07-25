@@ -32,7 +32,7 @@ const RoundAmountSelector = () => {
   }
   return (
     <>
-      <Text style={s.title}>{`${str.rounds}`}</Text>
+      <Text style={s.title}>{str.rounds.toUpperCase()}</Text>
       <View style={s.roundControlsContainer}>
         <TouchableOpacity
           disabled={state.totalRounds <= 1}
@@ -60,8 +60,8 @@ const s = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  title: { ...Theme.fonts.bodyLarge },
-  controls: { ...Theme.fonts.body, marginHorizontal: Theme.sizeS },
+  title: { ...Theme.fonts.h2 },
+  controls: { ...Theme.fonts.h3, marginHorizontal: Theme.sizeS },
 })
 
 export default RoundAmountSelector

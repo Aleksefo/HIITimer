@@ -27,8 +27,12 @@ const SetAmountSelector = props => {
 }
 
 const styles = StyleSheet.create({
-  notSelected: { ...Theme.fonts.body, margin: Theme.sizeS },
-  selected: { ...Theme.fonts.body, margin: Theme.sizeS, fontWeight: 'bold' },
+  notSelected: { ...Theme.fonts.h3, margin: Theme.sizeS },
+  selected: {
+    ...Theme.fonts.h3,
+    margin: Theme.sizeS,
+    fontWeight: 'bold',
+  },
 })
 
 export default SetAmountSelector
