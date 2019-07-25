@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import str from '../values/strings'
 import { useDispatch, useGlobalState } from '../state/AppContext'
+import Theme from '../values/Theme'
 
 const TotalTime = () => {
   const dispatch = useDispatch()
@@ -20,12 +21,16 @@ const TotalTime = () => {
   seconds = totalTimeLeft % 60
   if (seconds < 10) seconds = '0' + seconds
   return (
-    <View>
-      <Text style={{ fontSize: 20 }}>{`${
-        counterStatus === 'stopped' ? str.timeTotal : str.timeLeft
-      } ${minutes}:${seconds}`}</Text>
-    </View>
+    <Text style={styles.time}>{`${
+      counterStatus === 'stopped' ? str.timeTotal : str.timeLeft
+    } ${minutes}:${seconds}`}</Text>
   )
 }
+
+const styles = StyleSheet.create({
+  time: {
+    ...Theme.fonts.h3,
+  },
+})
 
 export default TotalTime

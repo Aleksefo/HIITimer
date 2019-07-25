@@ -1,13 +1,13 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, Text } from 'react-native'
+import Theme from '../values/Theme'
 // import Icon from 'react-native-vector-icons/Ionicons'
 
 const ControlsButton = props => {
-  const { buttonTitleStyle } = styles
   return (
     <TouchableOpacity {...props} style={[styles.button, props.style]}>
       {/*<Icon name={props.iconName} size={40} color="black" />*/}
-      <Text style={buttonTitleStyle}>{props.title}</Text>
+      <Text style={styles.buttonTitle}>{props.title}</Text>
     </TouchableOpacity>
   )
 }
@@ -18,9 +18,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
   },
-  buttonTitleStyle: {
-    fontSize: 40,
-    color: 'black',
+  buttonTitle: {
+    ...Theme.fonts.h1,
   },
 })
 // todo add styles or clear it

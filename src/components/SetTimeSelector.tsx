@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import TimeInput from './TimeInput'
 import str from '../values/strings'
 import { useDispatch, useGlobalState } from '../state/AppContext'
+import Theme from '../values/Theme'
 
 const SetTimeSelector = props => {
   const { setNumber = 1 } = props
@@ -33,41 +34,43 @@ const SetTimeSelector = props => {
       type: 'calculateTotalTime',
     })
   }
-  const { containerStyle, timeControlsContainerStyle } = styles
   return (
-    <View style={containerStyle}>
-      <Text>{`${str.set} ${setNumber}`}</Text>
-      <View style={timeControlsContainerStyle}>
+    <>
+      <Text style={s.title}>{`${str.set} ${setNumber}`}</Text>
+      <View style={s.timeControlsContainer}>
         <TouchableOpacity
           disabled={state.setsTime[setNumber - 1] <= 1}
           onPress={() => {
             decrement()
           }}
         >
-          <Text>-</Text>
+          <Text style={s.controls}>-</Text>
         </TouchableOpacity>
-        <TimeInput setNumber={setNumber - 1} />
+        <TimeInput style={s.controls} setNumber={setNumber - 1} />
         <TouchableOpacity
           onPress={() => {
             increment()
           }}
         >
-          <Text>+</Text>
+          <Text style={s.controls}>+</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </>
   )
 }
 
-const styles = StyleSheet.create({
-  containerStyle: {
+const s = StyleSheet.create({
+  container: {
     justifyContent: 'center',
+    alignItems: 'center',
   },
-  timeControlsContainerStyle: {
+  timeControlsContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
+  title: { ...Theme.fonts.bodyLarge },
+  controls: { ...Theme.fonts.body, marginHorizontal: Theme.sizeS },
 })
 
 export default SetTimeSelector

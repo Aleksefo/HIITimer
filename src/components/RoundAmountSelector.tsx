@@ -2,6 +2,7 @@ import React from 'react'
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import str from '../values/strings'
 import { useDispatch, useGlobalState } from '../state/AppContext'
+import Theme from '../values/Theme'
 
 const RoundAmountSelector = () => {
   const dispatch = useDispatch()
@@ -29,38 +30,38 @@ const RoundAmountSelector = () => {
       type: 'calculateTotalTime',
     })
   }
-  const { roundControlsContainerStyle } = styles
   return (
-    <View>
-      <Text>{`${str.rounds}`}</Text>
-      <View style={roundControlsContainerStyle}>
+    <>
+      <Text style={s.title}>{`${str.rounds}`}</Text>
+      <View style={s.roundControlsContainer}>
         <TouchableOpacity
           disabled={state.totalRounds <= 1}
           onPress={() => {
             decrement()
           }}
         >
-          <Text>-</Text>
+          <Text style={s.controls}>-</Text>
         </TouchableOpacity>
-        <Text>{state.totalRounds}</Text>
+        <Text style={s.controls}>{state.totalRounds}</Text>
         <TouchableOpacity
           onPress={() => {
             increment()
           }}
         >
-          <Text>+</Text>
+          <Text style={s.controls}>+</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </>
   )
 }
-
-const styles = StyleSheet.create({
-  roundControlsContainerStyle: {
+const s = StyleSheet.create({
+  roundControlsContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
+  title: { ...Theme.fonts.bodyLarge },
+  controls: { ...Theme.fonts.body, marginHorizontal: Theme.sizeS },
 })
 
 export default RoundAmountSelector

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View } from 'react-native'
 import { useGlobalState } from '../state/AppContext'
 import ControlsButton from './ControlsButton'
 import str from '../values/strings'
@@ -40,7 +40,6 @@ const CounterControls = (props: Props) => {
       <ControlsButton title={str.stop} onPress={() => props.stopCount()} />
     )
   }
-  const {} = styles
   return (
     <View>
       {startBtn}
@@ -50,9 +49,5 @@ const CounterControls = (props: Props) => {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  styleTop: {},
-})
 
 export default CounterControls

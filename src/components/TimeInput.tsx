@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, TextInput } from 'react-native'
+import { TextInput } from 'react-native'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 
 const TimeInput = props => {
@@ -29,27 +29,17 @@ const TimeInput = props => {
       type: 'calculateTotalTime',
     })
   }
-  const { containerStyle } = styles
   return (
-    <View style={containerStyle}>
-      <TextInput
-        keyboardType={'numeric'}
-        value={state.setsTime[props.setNumber].toString()}
-        onChangeText={text => {
-          changeInput(text)
-        }}
-      />
-    </View>
+    <TextInput
+      style={props.style}
+      keyboardType={'numeric'}
+      value={state.setsTime[props.setNumber].toString()}
+      onChangeText={text => {
+        changeInput(text)
+      }}
+    />
   )
 }
-
-const styles = StyleSheet.create({
-  containerStyle: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-})
 
 export default TimeInput
 //todo customize inputs more https://facebook.github.io/react-native/docs/textinput.html#keyboardtype

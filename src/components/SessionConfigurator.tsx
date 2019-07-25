@@ -4,11 +4,12 @@ import SetAmountSelector from './SetAmountSelector'
 import SetTimeSelector from './SetTimeSelector'
 import RoundAmountSelector from './RoundAmountSelector'
 import str from '../values/strings'
+import Theme from '../values/Theme'
 
 const SessionConfigurator = () => {
   return (
     <View style={styles.container}>
-      <Text>{str.sets}</Text>
+      <Text style={styles.sets}>{str.sets}</Text>
       <View style={styles.selectorContainer}>
         <SetAmountSelector amount={2} />
         <SetAmountSelector amount={3} />
@@ -26,6 +27,9 @@ const SessionConfigurator = () => {
 const styles = StyleSheet.create({
   container: { justifyContent: 'center', alignItems: 'center' },
   selectorContainer: { flexDirection: 'row', alignItems: 'center' },
+  sets: {
+    ...Theme.fonts.h3,
+  },
 })
 
 export default SessionConfigurator

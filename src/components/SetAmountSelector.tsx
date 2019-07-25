@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, Text } from 'react-native'
-import { ss, styled } from '../values/theme'
 import { useDispatch, useGlobalState } from '../state/AppContext'
+import Theme from '../values/Theme'
 
 const SetAmountSelector = props => {
   const dispatch = useDispatch()
@@ -27,8 +27,8 @@ const SetAmountSelector = props => {
 }
 
 const styles = StyleSheet.create({
-  notSelected: {},
-  selected: { fontWeight: 'bold' },
+  notSelected: { ...Theme.fonts.body, margin: Theme.sizeS },
+  selected: { ...Theme.fonts.body, margin: Theme.sizeS, fontWeight: 'bold' },
 })
 
 export default SetAmountSelector

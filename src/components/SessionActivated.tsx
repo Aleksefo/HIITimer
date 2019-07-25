@@ -1,10 +1,10 @@
 import React from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import { StyleSheet, Text } from 'react-native'
 import str from '../values/strings'
 import { useGlobalState } from '../state/AppContext'
+import Theme from '../values/Theme'
 
 const SessionActivated = () => {
-  const {} = styles
   const {
     timeSessionLeft,
     currentRound,
@@ -19,20 +19,19 @@ const SessionActivated = () => {
   seconds = timeSessionLeft % 60
   if (seconds < 10) seconds = '0' + seconds
   return (
-    <View>
-      <Text style={{ fontSize: 20 }}>
-        {`${str.set} ${currentSet}/${totalSets}`}
-      </Text>
-      <Text style={{ fontSize: 20 }}>{`${minutes}:${seconds}`}</Text>
+    <>
+      <Text style={s.title}>{`${str.set} ${currentSet}/${totalSets}`}</Text>
+      <Text style={s.title}>{`${minutes}:${seconds}`}</Text>
       <Text
-        style={{ fontSize: 20 }}
+        style={s.title}
       >{`${str.round} ${currentRound}/${totalRounds}`}</Text>
-    </View>
+    </>
   )
 }
 
-const styles = StyleSheet.create({
-  styleTop: {},
+const s = StyleSheet.create({
+  title: { ...Theme.fonts.bodyLarge },
+  titled: { ...Theme.fonts.bodyLarge },
 })
 
 export default SessionActivated
