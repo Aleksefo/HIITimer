@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, StyleSheet, TextInput } from 'react-native'
-import { styled } from '../values/theme'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 
 const TimeInput = props => {
@@ -34,7 +33,6 @@ const TimeInput = props => {
   return (
     <View style={containerStyle}>
       <TextInput
-        style={styled.textTitleStyle}
         keyboardType={'numeric'}
         value={state.setsTime[props.setNumber].toString()}
         onChangeText={text => {

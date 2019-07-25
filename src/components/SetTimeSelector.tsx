@@ -2,7 +2,6 @@ import React from 'react'
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import TimeInput from './TimeInput'
 import str from '../values/strings'
-import { styled } from '../values/theme'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 
 const SetTimeSelector = props => {
@@ -37,7 +36,7 @@ const SetTimeSelector = props => {
   const { containerStyle, timeControlsContainerStyle } = styles
   return (
     <View style={containerStyle}>
-      <Text style={styled.textTitleStyle}>{`${str.set} ${setNumber}`}</Text>
+      <Text>{`${str.set} ${setNumber}`}</Text>
       <View style={timeControlsContainerStyle}>
         <TouchableOpacity
           disabled={state.setsTime[setNumber - 1] <= 1}
@@ -45,7 +44,7 @@ const SetTimeSelector = props => {
             decrement()
           }}
         >
-          <Text style={styled.textTitleStyle}>-</Text>
+          <Text>-</Text>
         </TouchableOpacity>
         <TimeInput setNumber={setNumber - 1} />
         <TouchableOpacity
@@ -53,7 +52,7 @@ const SetTimeSelector = props => {
             increment()
           }}
         >
-          <Text style={styled.textTitleStyle}>+</Text>
+          <Text>+</Text>
         </TouchableOpacity>
       </View>
     </View>

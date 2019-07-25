@@ -21,14 +21,14 @@ const SetAmountSelector = props => {
         })
       }}
     >
-      <Text style={[styled.textTitleStyle, selectedStyle]}>{props.amount}</Text>
+      <Text style={selectedStyle}>{props.amount}</Text>
     </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
-  notSelected: { fontSize: ss(18), margin: ss(5) },
-  selected: { fontSize: ss(18), margin: ss(5), fontWeight: 'bold' },
+  notSelected: {},
+  selected: { fontWeight: 'bold' },
 })
 
 export default SetAmountSelector

@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import str from '../values/strings'
-import { styled } from '../values/theme'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 
 const RoundAmountSelector = () => {
@@ -33,7 +32,7 @@ const RoundAmountSelector = () => {
   const { roundControlsContainerStyle } = styles
   return (
     <View>
-      <Text style={styled.textTitleStyle}>{`${str.rounds}`}</Text>
+      <Text>{`${str.rounds}`}</Text>
       <View style={roundControlsContainerStyle}>
         <TouchableOpacity
           disabled={state.totalRounds <= 1}
@@ -41,7 +40,7 @@ const RoundAmountSelector = () => {
             decrement()
           }}
         >
-          <Text style={styled.textTitleStyle}>-</Text>
+          <Text>-</Text>
         </TouchableOpacity>
         <Text>{state.totalRounds}</Text>
         <TouchableOpacity
@@ -49,7 +48,7 @@ const RoundAmountSelector = () => {
             increment()
           }}
         >
-          <Text style={styled.textTitleStyle}>+</Text>
+          <Text>+</Text>
         </TouchableOpacity>
       </View>
     </View>

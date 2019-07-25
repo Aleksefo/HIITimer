@@ -4,7 +4,7 @@ import BackgroundTimer from './BackgroundTimer'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import CounterControls from './CounterControls'
 
-const Counter = () => {
+const Counter = props => {
   const dispatch = useDispatch()
   const state = useGlobalState()
 
@@ -80,7 +80,7 @@ const Counter = () => {
   }
   //todo maybe improve total time calculations based on time diff(not time left) tick provides
   return (
-    <View>
+    <View style={props.style}>
       <BackgroundTimer
         duration={state.timeSessionLeft * 1000}
         onComplete={onComplete}
