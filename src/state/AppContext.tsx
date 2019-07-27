@@ -1,4 +1,5 @@
 import React, { useReducer, useContext, createContext, Dispatch } from 'react'
+import { mergeAppState } from '../services/storageService'
 
 type State = {
   counterStatus: 'stopped' | 'started' | 'paused'
@@ -65,6 +66,12 @@ type Action =
       type: 'changeRoundsAmount'
       payload: {
         amount: number
+      }
+    }
+  | {
+      type: 'loadStoredState'
+      payload: {
+        state: State
       }
     }
 export const initialState: State = {
@@ -162,21 +169,31 @@ const appReducer = (state: State, action: Action): State => {
         totalTimeLeft: state.totalTimeLeft - 1,
       }
     case 'changeSetAmount':
+      let totalSets = action.payload.amount
+      mergeAppState({ totalSets })
       return {
         ...state,
-        totalSets: action.payload.amount,
+        totalSets,
       }
     case 'changeSetDuration':
       let setsTime = [...state.setsTime]
       setsTime.splice(action.payload.setNumber, 1, action.payload.duration)
+      mergeAppState({ setsTime })
       return {
         ...state,
         setsTime: setsTime,
       }
     case 'changeRoundsAmount':
+      let totalRounds = action.payload.amount
+      mergeAppState({ totalRounds })
       return {
         ...state,
-        totalRounds: action.payload.amount,
+        totalRounds,
+      }
+    case 'loadStoredState':
+      return {
+        ...state,
+        ...action.payload.state,
       }
     default:
       throw new Error('Undefined action ' + action)

@@ -1,19 +1,23 @@
 import React, { useEffect } from 'react'
 import { StyleSheet, View } from 'react-native'
-import { useGlobalState } from '../state/AppContext'
+import { useDispatch, useGlobalState } from '../state/AppContext'
 import {
   Counter,
   SessionConfigurator,
   SessionActivated,
   TotalTime,
 } from '../components'
+import { checkFirstLaunch } from '../services/storageService'
 
 const DashboardScreen = () => {
+  const dispatch = useDispatch()
+
   // const [text, setText] = useState()
   // const [userData, setUserData] = useState({ name: 'Max', age: 28 })
 
   useEffect(() => {
     console.log('DashboardScreen, useEffect')
+    checkFirstLaunch({ dispatch })
     return () => {
       // Cleanup work goes in here
       // If you return a function, that function will be executed right before
