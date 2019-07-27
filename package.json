@@ -11,6 +11,7 @@
     "ac": "cd android && ./gradlew clean"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.6.1",
     "react": "16.8.6",
     "react-native": "0.60.4",
     "react-native-background-timer": "^2.2.0-alpha.0",
