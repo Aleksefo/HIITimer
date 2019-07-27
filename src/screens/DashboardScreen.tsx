@@ -17,7 +17,7 @@ const DashboardScreen = () => {
 
   useEffect(() => {
     console.log('DashboardScreen, useEffect')
-    checkFirstLaunch({ dispatch })
+    checkFirstLaunch({ dispatch }).then()
     return () => {
       // Cleanup work goes in here
       // If you return a function, that function will be executed right before

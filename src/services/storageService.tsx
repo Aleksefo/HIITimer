@@ -11,9 +11,12 @@ export const checkFirstLaunch = async ({ dispatch }) => {
       await AsyncStorage.setItem(appStateKey, JSON.stringify(initialState))
     } else {
       console.log('storageService, checkFirstLaunch not first')
-      await dispatch({
+      dispatch({
         type: 'loadStoredState',
         payload: { state: JSON.parse(savedState) },
+      })
+      dispatch({
+        type: 'calculateTotalTime',
       })
     }
   } catch (error) {
