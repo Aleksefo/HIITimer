@@ -18,6 +18,9 @@ export const checkFirstLaunch = async ({ dispatch }) => {
       dispatch({
         type: 'calculateTotalTime',
       })
+      dispatch({
+        type: 'resetData',
+      })
     }
   } catch (error) {
     console.log('retrieveDate error ' + error)
