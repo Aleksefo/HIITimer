@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { useGlobalState } from '../state/AppContext'
-import ControlsButton from './ControlsButton'
+import ButtonControls from './ButtonControls'
 import str from '../values/strings'
 import Theme from '../values/Theme'
 
@@ -20,17 +20,17 @@ const CounterControls = (props: Props) => {
 
   state.counterStatus === 'stopped'
     ? (startBtn = (
-        <ControlsButton title={str.start} onPress={() => props.startCount()} />
+        <ButtonControls title={str.start} onPress={() => props.startCount()} />
       ))
     : null
   state.counterStatus === 'started'
     ? (pauseBtn = (
-        <ControlsButton title={str.pause} onPress={() => props.pauseCount()} />
+        <ButtonControls title={str.pause} onPress={() => props.pauseCount()} />
       ))
     : null
   state.counterStatus === 'paused'
     ? (resumeBtn = (
-        <ControlsButton
+        <ButtonControls
           title={str.resume}
           onPress={() => props.resumeCount()}
         />
@@ -38,7 +38,7 @@ const CounterControls = (props: Props) => {
     : null
   if (state.counterStatus === 'paused' || state.counterStatus === 'started') {
     stopBtn = (
-      <ControlsButton title={str.stop} onPress={() => props.stopCount()} />
+      <ButtonControls title={str.stop} onPress={() => props.stopCount()} />
     )
   }
   return (

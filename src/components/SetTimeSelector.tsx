@@ -4,6 +4,7 @@ import TimeInput from './TimeInput'
 import str from '../values/strings'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
+import ButtonStepModifier from './ButtonStepModifier'
 
 const SetTimeSelector = props => {
   const { setNumber = 1 } = props
@@ -38,22 +39,19 @@ const SetTimeSelector = props => {
     <>
       <Text style={s.title}>{`${str.set.toUpperCase()} ${setNumber}`}</Text>
       <View style={s.timeControlsContainer}>
-        <TouchableOpacity
+        <ButtonStepModifier
+          positive={false}
           disabled={state.setsTime[setNumber - 1] <= 1}
           onPress={() => {
             decrement()
           }}
-        >
-          <Text style={s.controls}>-</Text>
-        </TouchableOpacity>
+        />
         <TimeInput style={s.controls} setNumber={setNumber - 1} />
-        <TouchableOpacity
+        <ButtonStepModifier
           onPress={() => {
             increment()
           }}
-        >
-          <Text style={s.controls}>+</Text>
-        </TouchableOpacity>
+        />
       </View>
     </>
   )

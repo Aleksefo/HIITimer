@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, Text } from 'react-native'
 import Theme from '../values/Theme'
 // import Icon from 'react-native-vector-icons/Ionicons'
 
-const ControlsButton = props => {
+const ButtonControls = props => {
   return (
     <TouchableOpacity {...props} style={[styles.button, props.style]}>
       {/*<Icon name={props.iconName} size={40} color="black" />*/}
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
   },
 })
 // todo add styles or clear it
-export default ControlsButton
+export default ButtonControls

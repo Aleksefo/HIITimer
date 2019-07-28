@@ -1,8 +1,9 @@
 import React from 'react'
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, Text } from 'react-native'
 import str from '../values/strings'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
+import ButtonStepModifier from './ButtonStepModifier'
 
 const RoundAmountSelector = () => {
   const dispatch = useDispatch()
@@ -34,22 +35,19 @@ const RoundAmountSelector = () => {
     <>
       <Text style={s.title}>{str.rounds.toUpperCase()}</Text>
       <View style={s.roundControlsContainer}>
-        <TouchableOpacity
+        <ButtonStepModifier
+          positive={false}
           disabled={state.totalRounds <= 1}
           onPress={() => {
             decrement()
           }}
-        >
-          <Text style={s.controls}>-</Text>
-        </TouchableOpacity>
+        />
         <Text style={s.controls}>{state.totalRounds}</Text>
-        <TouchableOpacity
+        <ButtonStepModifier
           onPress={() => {
             increment()
           }}
-        >
-          <Text style={s.controls}>+</Text>
-        </TouchableOpacity>
+        />
       </View>
     </>
   )
