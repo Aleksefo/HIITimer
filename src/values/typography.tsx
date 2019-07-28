@@ -5,14 +5,14 @@ const typography = {
     fontSize: 48,
     lineHeight: 56,
     color: colors.black,
-    fontWeight: 'bold',
+    fontWeight: 'bold' as 'bold',
   },
   h2: {
     // fontFamily: 'NunitoSans-Black',
     fontSize: 28,
     lineHeight: 36,
     color: colors.black,
-    fontWeight: 'bold',
+    fontWeight: 'bold' as 'bold',
   },
   h3: {
     // fontFamily: 'NunitoSans-Bold',
