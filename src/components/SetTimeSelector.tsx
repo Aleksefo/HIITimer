@@ -12,16 +12,18 @@ const SetTimeSelector = props => {
   const state = useGlobalState()
 
   const decrement = () => {
-    dispatch({
-      type: 'changeSetDuration',
-      payload: {
-        setNumber: setNumber - 1,
-        duration: state.setsTime[setNumber - 1] - 1,
-      },
-    })
-    dispatch({
-      type: 'calculateTotalTime',
-    })
+    if (state.setsTime[setNumber - 1] > 1) {
+      dispatch({
+        type: 'changeSetDuration',
+        payload: {
+          setNumber: setNumber - 1,
+          duration: state.setsTime[setNumber - 1] - 1,
+        },
+      })
+      dispatch({
+        type: 'calculateTotalTime',
+      })
+    }
   }
   const increment = () => {
     dispatch({

@@ -10,15 +10,17 @@ const RoundAmountSelector = () => {
   const state = useGlobalState()
 
   const decrement = () => {
-    dispatch({
-      type: 'changeRoundsAmount',
-      payload: {
-        amount: state.totalRounds - 1,
-      },
-    })
-    dispatch({
-      type: 'calculateTotalTime',
-    })
+    if (state.totalRounds > 1) {
+      dispatch({
+        type: 'changeRoundsAmount',
+        payload: {
+          amount: state.totalRounds - 1,
+        },
+      })
+      dispatch({
+        type: 'calculateTotalTime',
+      })
+    }
   }
   const increment = () => {
     dispatch({
