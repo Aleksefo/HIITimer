@@ -8,10 +8,15 @@ import {
   TotalTime,
 } from '../components'
 import { checkFirstLaunch } from '../services/storageService'
+import KeepAwake from 'react-native-keep-awake'
 
 const DashboardScreen = () => {
   const dispatch = useDispatch()
+  const state = useGlobalState()
 
+  state.counterStatus === 'stopped'
+    ? KeepAwake.deactivate()
+    : KeepAwake.activate()
   // const [text, setText] = useState()
   // const [userData, setUserData] = useState({ name: 'Max', age: 28 })
 
@@ -30,7 +35,6 @@ const DashboardScreen = () => {
   //value for DidUpdate
 
   console.log('DashboardScreen: rendered')
-  const state = useGlobalState()
 
   return (
     <View style={styles.container}>

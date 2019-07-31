@@ -5296,6 +5296,11 @@ react-native-background-timer@^2.2.0-alpha.0:
   resolved "https://registry.yarnpkg.com/react-native-background-timer/-/react-native-background-timer-2.2.0-alpha.0.tgz#50f4049417b597a7a45ab50f12c6e0a84362aa41"
   integrity sha512-n7BXclIbQpG32eJ+8gbodVgkhxDWnOhGhgKUMyjNB/seTatIi58YHrhDa8aSeQGJV310/PduHzcl+6G7NvcCZg==
 
+react-native-keep-awake@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-keep-awake/-/react-native-keep-awake-4.0.0.tgz#d89fdc3fb60b3cffa979ef37dc5816196df998a2"
+  integrity sha512-0Fotox+eLXQooeibVs3P60yASYUWjtRw9MZNmbuHt5UZQrgUrAKsE4jm7gTr4tPU1m1RkwGzcgUFpcOkh/ec7g==
+
 react-native-testing-library@^1.11.1:
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/react-native-testing-library/-/react-native-testing-library-1.11.1.tgz#0e2d73991110cf7d7800d86610ad7b7f8a4c9455"

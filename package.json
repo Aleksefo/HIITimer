@@ -10,13 +10,13 @@
     "ios": "react-native run-ios",
     "ac": "cd android && ./gradlew clean",
     "emul": "cd ../../Library/Android/sdk/tools/ && ./emulator -avd Nexus_5X_API_25"
-
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.1",
     "react": "16.8.6",
     "react-native": "0.60.4",
     "react-native-background-timer": "^2.2.0-alpha.0",
+    "react-native-keep-awake": "^4.0.0",
     "react-native-vector-icons": "^6.6.0"
   },
   "devDependencies": {

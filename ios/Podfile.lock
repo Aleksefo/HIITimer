@@ -59,6 +59,8 @@ PODS:
   - React-jsinspector (0.60.4)
   - react-native-background-timer (2.2.0-alpha.0):
     - React
+  - react-native-keep-awake (4.0.0):
+    - React
   - React-RCTActionSheet (0.60.4):
     - React-Core (= 0.60.4)
   - React-RCTAnimation (0.60.4):
@@ -102,6 +104,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-background-timer (from `../node_modules/react-native-background-timer`)
+  - react-native-keep-awake (from `../node_modules/react-native-keep-awake`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -145,6 +148,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-background-timer:
     :path: "../node_modules/react-native-background-timer"
+  react-native-keep-awake:
+    :path: "../node_modules/react-native-keep-awake"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -186,6 +191,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 7549641e48bafae7bfee3f3ea19bf4901639c5de
   React-jsinspector: 73f24a02fa684ed6a2b828ba116874a2191ded88
   react-native-background-timer: 70a1dd79379dde081996efce852d68ce5145e71f
+  react-native-keep-awake: afad8a51dfef9fe9655a6344771be32c8596d774
   React-RCTActionSheet: 9f71d7ae3e8fb10e08d162cbf14c621349dbfab3
   React-RCTAnimation: 981d8c95b0e30918a9832ccac32af83562a27fae
   React-RCTBlob: 21e73d1020a302a75fed30dbaee9f15287b80baa
