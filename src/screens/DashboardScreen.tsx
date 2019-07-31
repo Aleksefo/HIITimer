@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, ScrollView, KeyboardAvoidingView } from 'react-native'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import {
   Counter,
@@ -38,17 +38,24 @@ const DashboardScreen = () => {
   console.log('DashboardScreen: rendered')
 
   return (
-    <View style={styles.container}>
-      <View style={styles.main}>
+    <ScrollView
+      keyboardShouldPersistTaps="handled"
+      contentContainerStyle={styles.container}
+    >
+      <KeyboardAvoidingView
+        behavior="padding"
+        style={styles.main}
+        contentContainerStyle={styles.main}
+      >
         {state.counterStatus === 'stopped' ? (
           <SessionConfigurator />
         ) : (
           <SessionActivated />
         )}
-      </View>
+      </KeyboardAvoidingView>
       <TotalTime />
       <Counter style={styles.counter} />
-    </View>
+    </ScrollView>
   )
 }
 
