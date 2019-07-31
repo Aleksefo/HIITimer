@@ -7,7 +7,7 @@ import {
   SessionActivated,
   TotalTime,
 } from '../components'
-import { checkFirstLaunch } from '../services/storageService'
+import { checkFirstLaunch, removeValue } from '../services/storageService'
 import KeepAwake from 'react-native-keep-awake'
 
 const DashboardScreen = () => {
@@ -22,6 +22,7 @@ const DashboardScreen = () => {
 
   useEffect(() => {
     console.log('DashboardScreen, useEffect')
+    // removeValue()
     checkFirstLaunch({ dispatch }).then()
     return () => {
       // Cleanup work goes in here
