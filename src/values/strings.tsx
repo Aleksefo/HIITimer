@@ -12,6 +12,10 @@ const str = {
   // Timer
   round: 'Round',
   timeLeft: 'Time left',
+  // StopAlert
+  stopAlertTitle: 'Are you sure you want to end the session?',
+  stopAlertContinue: 'Continue',
+  stopAlertStop: 'Stop',
 }
 
 export default str

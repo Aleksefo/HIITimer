@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, Alert } from 'react-native'
 import { useGlobalState } from '../state/AppContext'
 import ButtonControls from './ButtonControls'
 import str from '../values/strings'
@@ -17,6 +17,22 @@ const CounterControls = (props: Props) => {
   let pauseBtn
   let resumeBtn
   let stopBtn
+
+  const showStopAlert = () => {
+    Alert.alert(
+      str.stopAlertTitle,
+      null,
+      [
+        {
+          text: str.stopAlertContinue,
+          onPress: () => {},
+          style: 'cancel',
+        },
+        { text: str.stopAlertStop, onPress: () => props.stopCount() },
+      ],
+      { cancelable: true },
+    )
+  }
 
   state.counterStatus === 'stopped'
     ? (startBtn = (
@@ -38,7 +54,7 @@ const CounterControls = (props: Props) => {
     : null
   if (state.counterStatus === 'paused' || state.counterStatus === 'started') {
     stopBtn = (
-      <ButtonControls title={str.stop} onPress={() => props.stopCount()} />
+      <ButtonControls title={str.stop} onPress={() => showStopAlert()} />
     )
   }
   return (
