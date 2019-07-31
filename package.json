@@ -8,7 +8,9 @@
     "lint": "eslint .",
     "and": "react-native run-android",
     "ios": "react-native run-ios",
-    "ac": "cd android && ./gradlew clean"
+    "ac": "cd android && ./gradlew clean",
+    "emul": "cd ../../Library/Android/sdk/tools/ && ./emulator -avd Nexus_5X_API_25"
+
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.1",

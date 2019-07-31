@@ -9,8 +9,10 @@ const useInterval = (callback, delay) => {
   }, [callback])
 
   // Set up the interval.
+  // @ts-ignore
   useEffect(() => {
     function tick() {
+      // @ts-ignore
       savedCallback.current()
     }
     if (delay !== null) {
