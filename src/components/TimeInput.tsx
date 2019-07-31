@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TextInput } from 'react-native'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 
@@ -8,6 +8,10 @@ const TimeInput = props => {
   const [input, setInput] = useState<string | number>(
     state.setsTime[props.setNumber],
   )
+  useEffect(() => {
+    setInput(state.setsTime[props.setNumber])
+    return () => {}
+  }, [state.setsTime[props.setNumber]])
 
   //todo check android numerical keyboard for negatives
   const changeInput = (value: string) => {
@@ -23,7 +27,7 @@ const TimeInput = props => {
     let number
     if (typeof input === 'string') {
       number = parseInt(input)
-    }
+    } else number = input
     if (Number.isInteger(number) && number >= 0) {
       dispatch({
         type: 'changeSetDuration',
@@ -50,7 +54,7 @@ const TimeInput = props => {
   return (
     <TextInput
       style={props.style}
-      keyboardType={'numeric'}
+      keyboardType={'number-pad'}
       value={input.toString()}
       onChangeText={text => {
         changeInput(text)
@@ -58,6 +62,7 @@ const TimeInput = props => {
       onEndEditing={() => {
         checkInput()
       }}
+      returnKeyType={'done'}
     />
   )
 }
