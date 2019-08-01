@@ -46,7 +46,7 @@ const ButtonStepModifier = ({ positive = true, disabled, onPress }: Props) => {
 
 const s = StyleSheet.create({
   controls: { ...Theme.fonts.body, marginHorizontal: Theme.sizeS },
-  disabled: { color: Theme.colors.inactive },
+  disabled: { color: Theme.colors.grey2 },
 })
 
 export default ButtonStepModifier
