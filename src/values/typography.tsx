@@ -35,13 +35,13 @@ const typography = {
   body: {
     // fontFamily: 'NunitoSans-Regular',
     fontSize: 16,
-    lineHeight: 24,
+    // lineHeight: 24,
     color: colors.black,
   },
   bodyLarge: {
     // fontFamily: 'NunitoSans-Regular',
     fontSize: 20,
-    lineHeight: 28,
+    // lineHeight: 28,
     color: colors.black,
   },
   bodySmall: {

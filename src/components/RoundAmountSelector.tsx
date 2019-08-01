@@ -34,7 +34,7 @@ const RoundAmountSelector = () => {
     })
   }
   return (
-    <>
+    <View>
       <Text style={s.title}>{str.rounds.toUpperCase()}</Text>
       <View style={s.roundControlsContainer}>
         <ButtonStepModifier
@@ -51,7 +51,7 @@ const RoundAmountSelector = () => {
           }}
         />
       </View>
-    </>
+    </View>
   )
 }
 const s = StyleSheet.create({
@@ -61,7 +61,7 @@ const s = StyleSheet.create({
     alignItems: 'center',
   },
   title: { ...Theme.fonts.h2 },
-  controls: { ...Theme.fonts.h3, marginHorizontal: Theme.sizeS },
+  controls: { ...Theme.fonts.h3, margin: Theme.sizeS },
 })
 
 export default RoundAmountSelector

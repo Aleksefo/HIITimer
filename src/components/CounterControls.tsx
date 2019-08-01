@@ -70,7 +70,6 @@ const s = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: Theme.w,
     flex: 1,
   },
 })

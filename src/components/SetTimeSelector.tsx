@@ -5,6 +5,7 @@ import str from '../values/strings'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
 import ButtonStepModifier from './ButtonStepModifier'
+import { Spacing } from './index'
 
 const SetTimeSelector = props => {
   const { setNumber = 1 } = props
@@ -39,8 +40,9 @@ const SetTimeSelector = props => {
   }
   return (
     <>
-      <Text style={s.title}>{`${str.set.toUpperCase()} ${setNumber}`}</Text>
       <View style={s.timeControlsContainer}>
+        <Text style={s.title}>{`${str.set.toUpperCase()} ${setNumber}`}</Text>
+        <Spacing m />
         <ButtonStepModifier
           positive={false}
           disabled={state.setsTime[setNumber - 1] <= 1}
@@ -60,17 +62,19 @@ const SetTimeSelector = props => {
 }
 
 const s = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   timeControlsContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
   title: { ...Theme.fonts.bodyLarge },
-  controls: { ...Theme.fonts.body, marginHorizontal: Theme.sizeS },
+  controls: {
+    ...Theme.fonts.bodyLarge,
+    textAlign: 'center',
+    padding: 0,
+    margin: 0,
+    paddingHorizontal: Theme.sizeS,
+  },
 })
 
 export default SetTimeSelector

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet, View } from 'react-native'
 import str from '../values/strings'
 import { useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
@@ -13,13 +13,18 @@ const TotalTime = () => {
   seconds = totalTimeLeft % 60
   if (seconds < 10) seconds = '0' + seconds
   return (
-    <Text style={styles.time}>{`${
-      counterStatus === 'stopped' ? str.timeTotal : str.timeLeft
-    } ${minutes}:${seconds}`}</Text>
+    <View style={styles.container}>
+      <Text style={styles.time}>{`${
+        counterStatus === 'stopped' ? str.timeTotal : str.timeLeft
+      } ${minutes}:${seconds}`}</Text>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    alignSelf: 'center',
+  },
   time: {
     ...Theme.fonts.h3,
   },

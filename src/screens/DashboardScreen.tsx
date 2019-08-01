@@ -9,6 +9,7 @@ import {
 } from '../components'
 import { checkFirstLaunch, removeValue } from '../services/storageService'
 import KeepAwake from 'react-native-keep-awake'
+import Theme from '../values/Theme'
 
 const DashboardScreen = () => {
   const dispatch = useDispatch()
@@ -41,6 +42,7 @@ const DashboardScreen = () => {
     <ScrollView
       keyboardShouldPersistTaps="handled"
       contentContainerStyle={styles.container}
+      bounces={false}
     >
       <KeyboardAvoidingView
         behavior="padding"
@@ -68,14 +70,12 @@ export default React.memo(DashboardScreen)
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  counter: {
-    flex: 1,
+    paddingHorizontal: Theme.sizeXL,
   },
   main: {
     flex: 4,
-    justifyContent: 'center',
+  },
+  counter: {
+    flex: 1,
   },
 })
