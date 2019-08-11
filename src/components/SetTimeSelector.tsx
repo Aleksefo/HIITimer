@@ -74,6 +74,7 @@ const s = StyleSheet.create({
     padding: 0,
     margin: 0,
     paddingHorizontal: Theme.sizeS,
+    width: Theme.sizeXXL,
   },
 })
 

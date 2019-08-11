@@ -23,11 +23,11 @@ const SessionConfigurator = () => {
       </View>
       <View style={styles.setsContainer}>
         <SetTimeSelector setNumber={1} />
-        <Spacing m />
+        <Spacing l />
         <SetTimeSelector setNumber={2} />
-        <Spacing m />
+        <Spacing l />
         <SetTimeSelector setNumber={3} />
-        <Spacing m />
+        <Spacing l />
         <SetTimeSelector setNumber={4} />
       </View>
     </View>
