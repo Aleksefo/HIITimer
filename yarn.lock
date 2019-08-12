@@ -5296,6 +5296,11 @@ react-native-background-timer@^2.2.0-alpha.0:
   resolved "https://registry.yarnpkg.com/react-native-background-timer/-/react-native-background-timer-2.2.0-alpha.0.tgz#50f4049417b597a7a45ab50f12c6e0a84362aa41"
   integrity sha512-n7BXclIbQpG32eJ+8gbodVgkhxDWnOhGhgKUMyjNB/seTatIi58YHrhDa8aSeQGJV310/PduHzcl+6G7NvcCZg==
 
+react-native-bootsplash@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-bootsplash/-/react-native-bootsplash-0.1.1.tgz#252f3527d58f65c54a9c5f381fc99932728646ce"
+  integrity sha512-1a3+DZfCn9BSvfM6R9es3rn+RP3+i9rK0+46F6vMHWMaErUIJAq+KHk7xXD8T5aUEY6DLiuohNsZsuCsPnQIsg==
+
 react-native-keep-awake@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-native-keep-awake/-/react-native-keep-awake-4.0.0.tgz#d89fdc3fb60b3cffa979ef37dc5816196df998a2"

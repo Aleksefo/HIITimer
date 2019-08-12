@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Provider } from './state/AppContext'
 import DashboardScreen from './screens/DashboardScreen'
+import RNBootSplash from 'react-native-bootsplash'
 
 const App = () => {
+  useEffect(() => {
+    RNBootSplash.hide({ duration: 2500 })
+  }, [])
+
   return (
     <Provider>
       <DashboardScreen />

@@ -1,5 +1,9 @@
 package com.hiitimer;
 
+// Splash
+import android.os.Bundle;
+import com.zoontek.rnbootsplash.RNBootSplash;
+
 import com.facebook.react.ReactActivity;
 
 public class MainActivity extends ReactActivity {
@@ -11,5 +15,11 @@ public class MainActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
         return "HIITimer";
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        RNBootSplash.show(R.drawable.bootsplash, MainActivity.this);
     }
 }
