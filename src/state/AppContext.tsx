@@ -11,6 +11,7 @@ type State = {
   timeSession: number //this.set1Time
   timeSessionLeft: number //this.timeSession
   totalTimeLeft: number
+  stateLoaded: boolean
 }
 type Action =
   | {
@@ -84,6 +85,7 @@ export const initialState: State = {
   timeSession: 4, //this.set1Time
   timeSessionLeft: 4, //this.timeSession
   totalTimeLeft: 0,
+  stateLoaded: false,
 }
 
 const appReducer = (state: State, action: Action): State => {
@@ -194,6 +196,7 @@ const appReducer = (state: State, action: Action): State => {
       return {
         ...state,
         ...action.payload.state,
+        stateLoaded: true,
       }
     default:
       throw new Error('Undefined action ' + action)

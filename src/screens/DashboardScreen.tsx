@@ -10,6 +10,7 @@ import {
 import { checkFirstLaunch, removeValue } from '../services/storageService'
 import KeepAwake from 'react-native-keep-awake'
 import Theme from '../values/Theme'
+import RNBootSplash from 'react-native-bootsplash'
 
 const DashboardScreen = () => {
   const dispatch = useDispatch()
@@ -20,7 +21,9 @@ const DashboardScreen = () => {
     : KeepAwake.activate()
   // const [text, setText] = useState()
   // const [userData, setUserData] = useState({ name: 'Max', age: 28 })
-
+  useEffect(() => {
+    if (state.stateLoaded) RNBootSplash.hide({ duration: 500 })
+  }, [state.stateLoaded])
   useEffect(() => {
     console.log('DashboardScreen, useEffect')
     // removeValue()
