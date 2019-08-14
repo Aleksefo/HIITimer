@@ -19,6 +19,7 @@ const CircularProgress = ({ timeSession, timeSessionLeft }) => {
       width={Theme.sizeM}
       backgroundWidth={Theme.sizeM - 4}
       fill={fill}
+      prefill={0}
       tintColor={Theme.colors.primaryColor}
       backgroundColor={Theme.colors.grey3}
       rotation={210}

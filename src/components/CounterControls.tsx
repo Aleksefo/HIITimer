@@ -3,7 +3,6 @@ import { StyleSheet, View, Alert } from 'react-native'
 import { useGlobalState } from '../state/AppContext'
 import ButtonControls from './ButtonControls'
 import str from '../values/strings'
-import Theme from '../values/Theme'
 
 type Props = {
   startCount: () => void
@@ -67,6 +66,7 @@ const s = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    alignItems: 'center',
     flex: 1,
   },
 })
