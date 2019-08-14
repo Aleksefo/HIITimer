@@ -23,7 +23,8 @@ const CircularProgress = ({ timeSession, timeSessionLeft }) => {
       backgroundColor={Theme.colors.grey3}
       rotation={210}
       arcSweepAngle={300}
-      // style={{ backgroundColor: 'pink' }}
+      // style={{ transform: [{ scaleX: -1 }] }}
+      // childrenContainerStyle={{ transform: [{ scaleX: -1 }] }}
       duration={750} //todo test with various times (200, 10 etc )
     >
       {() => <Text style={s.time}>{`${minutes}:${seconds}`}</Text>}
