@@ -4,9 +4,11 @@ import str from '../values/strings'
 import { useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
 import { Spacing } from './index'
+import CircularProgress from './CircularProgress'
 
 const SessionActivated = () => {
   const {
+    timeSession,
     timeSessionLeft,
     currentRound,
     totalRounds,
@@ -21,6 +23,10 @@ const SessionActivated = () => {
   if (seconds < 10) seconds = '0' + seconds
   return (
     <View style={s.container}>
+      <CircularProgress
+        timeSession={timeSession}
+        timeSessionLeft={timeSessionLeft}
+      />
       <Text style={s.time}>{`${minutes}:${seconds}`}</Text>
       <Text style={s.title}>{`${str.set} ${currentSet}/${totalSets}`}</Text>
       <Text
