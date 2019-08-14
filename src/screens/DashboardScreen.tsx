@@ -19,27 +19,18 @@ const DashboardScreen = () => {
   state.counterStatus === 'stopped'
     ? KeepAwake.deactivate()
     : KeepAwake.activate()
-  // const [text, setText] = useState()
-  // const [userData, setUserData] = useState({ name: 'Max', age: 28 })
+
   useEffect(() => {
-    if (state.stateLoaded) RNBootSplash.hide({ duration: 500 })
-  }, [state.stateLoaded])
-  useEffect(() => {
-    console.log('DashboardScreen, useEffect')
     // removeValue()
     checkFirstLaunch({ dispatch }).then()
-    return () => {
-      // Cleanup work goes in here
-      // If you return a function, that function will be executed right before
-      // the function passed to useEffect() runs. It also will be executed before
-      // the component is removed from the DOM.
-      console.log('componentWillUnmount: ')
-    }
   }, [])
-  //empty array to run only once DidMount
-  //value for DidUpdate
 
-  console.log('DashboardScreen: rendered')
+  useEffect(() => {
+    if (state.stateLoaded) {
+      RNBootSplash.hide({ duration: 500 })
+    }
+  }, [state.stateLoaded])
+  console.tron.log('DashboardScreen: rendered')
 
   return (
     <ScrollView

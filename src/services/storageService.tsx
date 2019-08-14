@@ -7,10 +7,12 @@ export const checkFirstLaunch = async ({ dispatch }) => {
   try {
     const savedState = await AsyncStorage.getItem(appStateKey)
     if (savedState === null) {
-      console.log('storageService, checkFirstLaunch first')
+      dispatch({
+        type: 'loadStoredState',
+        payload: { state: {} },
+      })
       await AsyncStorage.setItem(appStateKey, JSON.stringify(initialState))
     } else {
-      console.log('storageService, checkFirstLaunch not first')
       dispatch({
         type: 'loadStoredState',
         payload: { state: JSON.parse(savedState) },
@@ -23,7 +25,7 @@ export const checkFirstLaunch = async ({ dispatch }) => {
       })
     }
   } catch (error) {
-    console.log('retrieveDate error ' + error)
+    console.tron.log('retrieveData error ' + error)
   }
 }
 
@@ -32,7 +34,7 @@ export const mergeAppState = async value => {
     await AsyncStorage.mergeItem(appStateKey, JSON.stringify(value))
 
     const state = await AsyncStorage.getItem(appStateKey)
-    console.log('storageService, mergeAppState', state)
+    console.tron.log('storageService, mergeAppState', JSON.parse(state))
   } catch (e) {
     // read key error
   }
@@ -45,7 +47,7 @@ export const getAllKeys = async () => {
   } catch (e) {
     // read key error
   }
-  console.log(keys)
+  console.tron.log(keys)
 }
 export const removeValue = async () => {
   try {
@@ -53,5 +55,5 @@ export const removeValue = async () => {
   } catch (e) {
     // remove error
   }
-  console.log('storageService, removeValue')
+  console.tron.log('storageService, removeValue')
 }
