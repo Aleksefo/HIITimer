@@ -36,25 +36,22 @@ const CounterControls = (props: Props) => {
 
   state.counterStatus === 'stopped'
     ? (startBtn = (
-        <ButtonControls title={str.start} onPress={() => props.startCount()} />
+        <ButtonControls iconName="right" onPress={() => props.startCount()} />
       ))
     : null
   state.counterStatus === 'started'
     ? (pauseBtn = (
-        <ButtonControls title={str.pause} onPress={() => props.pauseCount()} />
+        <ButtonControls iconName="pause" onPress={() => props.pauseCount()} />
       ))
     : null
   state.counterStatus === 'paused'
     ? (resumeBtn = (
-        <ButtonControls
-          title={str.resume}
-          onPress={() => props.resumeCount()}
-        />
+        <ButtonControls iconName="right" onPress={() => props.resumeCount()} />
       ))
     : null
   if (state.counterStatus === 'paused' || state.counterStatus === 'started') {
     stopBtn = (
-      <ButtonControls title={str.stop} onPress={() => showStopAlert()} />
+      <ButtonControls iconName="close" onPress={() => showStopAlert()} />
     )
   }
   return (

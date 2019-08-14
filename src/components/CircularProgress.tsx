@@ -24,7 +24,7 @@ const CircularProgress = ({ timeSession, timeSessionLeft }) => {
       rotation={210}
       arcSweepAngle={300}
       // style={{ backgroundColor: 'pink' }}
-      duration={1000} //todo test with various times (200, 10 etc )
+      duration={750} //todo test with various times (200, 10 etc )
     >
       {() => <Text style={s.time}>{`${minutes}:${seconds}`}</Text>}
     </AnimatedCircularProgress>
