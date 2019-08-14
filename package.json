@@ -9,7 +9,8 @@
     "and": "react-native run-android",
     "ios": "react-native run-ios",
     "ac": "cd android && ./gradlew clean",
-    "emul": "cd ../../Library/Android/sdk/tools/ && ./emulator -avd Nexus_5X_API_25"
+    "emul": "cd ../../Library/Android/sdk/tools/ && ./emulator -avd Nexus_5X_API_25",
+    "pod": "cd ios && pod install && cd -"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.1",
@@ -42,6 +43,7 @@
     "prettier": "^1.18.2",
     "react-native-testing-library": "^1.11.1",
     "react-test-renderer": "16.8.6",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "reactotron-react-native" : "^4.0.0-beta.1"
   }
 }
