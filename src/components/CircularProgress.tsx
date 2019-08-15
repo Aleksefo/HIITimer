@@ -5,7 +5,7 @@ import Theme from '../values/Theme'
 
 const CircularProgress = ({ timeSession, timeSessionLeft }) => {
   const fillMultiplier = 100 / timeSession
-  const fill = fillMultiplier * timeSessionLeft
+  const fill = 100 - fillMultiplier * timeSessionLeft
 
   let minutes: number | string
   let seconds: number | string
@@ -19,14 +19,12 @@ const CircularProgress = ({ timeSession, timeSessionLeft }) => {
       width={Theme.sizeM}
       backgroundWidth={Theme.sizeM - 4}
       fill={fill}
-      prefill={0}
+      prefill={100}
       tintColor={Theme.colors.primaryColor}
       backgroundColor={Theme.colors.grey3}
       rotation={210}
       arcSweepAngle={300}
-      // style={{ transform: [{ scaleX: -1 }] }}
-      // childrenContainerStyle={{ transform: [{ scaleX: -1 }] }}
-      duration={500} //todo test with various times (200, 10 etc )
+      duration={500}
     >
       {() => <Text style={s.time}>{`${minutes}:${seconds}`}</Text>}
     </AnimatedCircularProgress>
