@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { TextInput } from 'react-native'
+import { StyleSheet, TextInput } from 'react-native'
 import { useDispatch, useGlobalState } from '../state/AppContext'
+import Theme from '../values/Theme'
 
 const TimeInput = props => {
   const dispatch = useDispatch()
@@ -53,7 +54,8 @@ const TimeInput = props => {
   }
   return (
     <TextInput
-      style={props.style}
+      editable={!props.disabled}
+      style={[props.style, props.disabled ? s.disabled : null]}
       keyboardType={'number-pad'}
       value={input.toString()}
       onChangeText={text => {
@@ -66,6 +68,9 @@ const TimeInput = props => {
     />
   )
 }
+const s = StyleSheet.create({
+  disabled: { color: Theme.colors.grey2 },
+})
 
 export default TimeInput
 //todo customize inputs more https://facebook.github.io/react-native/docs/textinput.html#keyboardtype

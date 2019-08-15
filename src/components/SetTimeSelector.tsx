@@ -1,11 +1,11 @@
 import React from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import TimeInput from './TimeInput'
 import str from '../values/strings'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
 import ButtonStepModifier from './ButtonStepModifier'
-import { Spacing } from './index'
+import { DSText, Spacing } from './index'
 
 const SetTimeSelector = props => {
   const { setNumber = 1 } = props
@@ -38,23 +38,32 @@ const SetTimeSelector = props => {
       type: 'calculateTotalTime',
     })
   }
+  const disabled = state.totalSets < setNumber
   return (
     <>
       <View style={s.timeControlsContainer}>
-        <Text style={s.title}>{`${str.set.toUpperCase()} ${setNumber}`}</Text>
+        <DSText
+          style={s.title}
+          disabled={disabled}
+        >{`${str.set.toUpperCase()} ${setNumber}`}</DSText>
         <Spacing m />
         <ButtonStepModifier
           positive={false}
-          disabled={state.setsTime[setNumber - 1] <= 1}
+          disabled={state.setsTime[setNumber - 1] <= 1 || disabled}
           onPress={() => {
             decrement()
           }}
         />
-        <TimeInput style={s.controls} setNumber={setNumber - 1} />
+        <TimeInput
+          style={s.controls}
+          setNumber={setNumber - 1}
+          disabled={disabled}
+        />
         <ButtonStepModifier
           onPress={() => {
             increment()
           }}
+          disabled={disabled}
         />
       </View>
     </>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { StyleSheet, TouchableOpacity } from 'react-native'
 import Theme from '../values/Theme'
 import useInterval from '../state/useInterval'
+import { DSText } from './index'
 
 type Props = {
   positive?: boolean
@@ -25,9 +26,13 @@ const ButtonStepModifier = ({ positive = true, disabled, onPress }: Props) => {
     pressed ? 500 : null,
   )
   const renderIcon = positive ? (
-    <Text style={s.controls}>+</Text>
+    <DSText style={s.controls} disabled={disabled}>
+      +
+    </DSText>
   ) : (
-    <Text style={[s.controls, disabled ? s.disabled : null]}>-</Text>
+    <DSText style={s.controls} disabled={disabled}>
+      -
+    </DSText>
   )
   return (
     <TouchableOpacity
