@@ -77,14 +77,14 @@ type Action =
     }
 export const initialState: State = {
   counterStatus: 'stopped',
-  setsTime: [4, 7, 5, 5],
+  setsTime: [60, 60, 60, 60],
   totalRounds: 2,
   currentRound: 1,
-  totalSets: 4,
+  totalSets: 3,
   currentSet: 1,
-  timeSession: 4, //this.set1Time
-  timeSessionLeft: 4, //this.timeSession
-  totalTimeLeft: 0,
+  timeSession: 60, //this.set1Time
+  timeSessionLeft: 60, //this.timeSession
+  totalTimeLeft: 360,
   stateLoaded: false,
 }
 
