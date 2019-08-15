@@ -7,7 +7,10 @@ import {
   SessionActivated,
   TotalTime,
 } from '../components'
-import { checkFirstLaunch, removeValue } from '../services/storageService'
+import {
+  checkFirstLaunch,
+  // removeValue
+} from '../services/storageService'
 import KeepAwake from 'react-native-keep-awake'
 import Theme from '../values/Theme'
 import RNBootSplash from 'react-native-bootsplash'
