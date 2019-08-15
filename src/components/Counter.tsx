@@ -29,7 +29,7 @@ const Counter = props => {
     dispatch({
       type: 'calculateTotalTime',
     })
-    counterRef.current.startCount(100)
+    counterRef.current.startCount(50)
   }
   const pauseCount = () => {
     counterRef.current.stopCount()
@@ -39,7 +39,7 @@ const Counter = props => {
     })
   }
   const resumeCount = () => {
-    counterRef.current.startCount(100)
+    counterRef.current.startCount(50)
     dispatch({
       type: 'changeStatus',
       payload: { command: 'resume' },
