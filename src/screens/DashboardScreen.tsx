@@ -30,7 +30,6 @@ const DashboardScreen = () => {
       RNBootSplash.hide({ duration: 500 })
     }
   }, [state.stateLoaded])
-  console.tron.log('DashboardScreen: rendered')
 
   return (
     <ScrollView

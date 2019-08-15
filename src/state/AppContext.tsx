@@ -89,7 +89,7 @@ export const initialState: State = {
 }
 
 const appReducer = (state: State, action: Action): State => {
-  console.log('AppContext, appReducer', action)
+  console.tron.log('AppContext, appReducer', action, state)
   switch (action.type) {
     case 'resetData':
       return {
@@ -184,6 +184,8 @@ const appReducer = (state: State, action: Action): State => {
       return {
         ...state,
         setsTime: setsTime,
+        timeSession: setsTime[0],
+        timeSessionLeft: setsTime[0],
       }
     case 'changeRoundsAmount':
       let totalRounds = action.payload.amount
