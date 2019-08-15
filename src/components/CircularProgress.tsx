@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet } from 'react-native'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import Theme from '../values/Theme'
 
@@ -26,7 +26,7 @@ const CircularProgress = ({ timeSession, timeSessionLeft }) => {
       arcSweepAngle={300}
       // style={{ transform: [{ scaleX: -1 }] }}
       // childrenContainerStyle={{ transform: [{ scaleX: -1 }] }}
-      duration={750} //todo test with various times (200, 10 etc )
+      duration={500} //todo test with various times (200, 10 etc )
     >
       {() => <Text style={s.time}>{`${minutes}:${seconds}`}</Text>}
     </AnimatedCircularProgress>
