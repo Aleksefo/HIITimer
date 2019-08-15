@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { View } from 'react-native'
 import BackgroundTimer from './BackgroundTimer'
 import { useDispatch, useGlobalState } from '../state/AppContext'
@@ -10,6 +10,17 @@ const Counter = props => {
 
   const counterRef = useRef(null)
 
+  useEffect(() => {
+    if (
+      state.counterStatus === 'started' &&
+      state.timeSessionLeft !== state.timeSession
+    ) {
+      dispatch({
+        type: 'updateTotalTime',
+      })
+    }
+  }, [state.timeSessionLeft])
+
   const startCount = () => {
     dispatch({
       type: 'changeStatus',
@@ -18,7 +29,7 @@ const Counter = props => {
     dispatch({
       type: 'calculateTotalTime',
     })
-    counterRef.current.startCount(1000)
+    counterRef.current.startCount(100)
   }
   const pauseCount = () => {
     counterRef.current.stopCount()
@@ -28,7 +39,7 @@ const Counter = props => {
     })
   }
   const resumeCount = () => {
-    counterRef.current.startCount(1000)
+    counterRef.current.startCount(100)
     dispatch({
       type: 'changeStatus',
       payload: { command: 'resume' },
@@ -73,9 +84,6 @@ const Counter = props => {
     dispatch({
       type: 'setTimeSessionLeft',
       payload: { timeSessionLeft: Math.round(timeLeft / 1000) },
-    })
-    dispatch({
-      type: 'updateTotalTime',
     })
   }
   //todo maybe improve total time calculations based on time diff(not time left) tick provides
