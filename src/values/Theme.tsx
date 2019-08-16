@@ -12,7 +12,9 @@ const window = Dimensions.get('window')
 // }
 
 export const styled = {
-  fontFamily: { fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace' },
+  fontFamily: {
+    fontFamily: Platform.OS === 'ios' ? 'AvenirNext-Regular' : 'monospace',
+  },
 }
 
 const Theme = {
