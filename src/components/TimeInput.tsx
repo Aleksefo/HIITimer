@@ -55,7 +55,11 @@ const TimeInput = props => {
   return (
     <TextInput
       editable={!props.disabled}
-      style={[props.style, props.disabled ? s.disabled : null]}
+      style={[
+        props.style,
+        props.disabled ? s.disabled : null,
+        Theme.styled.fontFamily,
+      ]}
       keyboardType={'number-pad'}
       value={input.toString()}
       onChangeText={text => {

@@ -1,8 +1,9 @@
 import React from 'react'
-import { Text, StyleSheet, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import str from '../values/strings'
 import { useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
+import { DSText } from './index'
 
 const TotalTime = () => {
   const { counterStatus, totalTimeLeft } = useGlobalState()
@@ -14,9 +15,9 @@ const TotalTime = () => {
   if (seconds < 10) seconds = '0' + seconds
   return (
     <View style={styles.container}>
-      <Text style={styles.time}>{`${
+      <DSText style={styles.time}>{`${
         counterStatus === 'stopped' ? str.timeTotal : str.timeLeft
-      } ${minutes}:${seconds}`}</Text>
+      } ${minutes}:${seconds}`}</DSText>
     </View>
   )
 }

@@ -1,9 +1,9 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import str from '../values/strings'
 import { useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
-import { Spacing } from './index'
+import { DSText, Spacing } from './index'
 import CircularProgress from './CircularProgress'
 
 const SessionActivated = () => {
@@ -21,10 +21,10 @@ const SessionActivated = () => {
         timeSession={timeSession}
         timeSessionLeft={timeSessionLeft}
       />
-      <Text style={s.title}>{`${str.set} ${currentSet}/${totalSets}`}</Text>
-      <Text
+      <DSText style={s.title}>{`${str.set} ${currentSet}/${totalSets}`}</DSText>
+      <DSText
         style={s.title}
-      >{`${str.round} ${currentRound}/${totalRounds}`}</Text>
+      >{`${str.round} ${currentRound}/${totalRounds}`}</DSText>
       <Spacing xl />
     </View>
   )

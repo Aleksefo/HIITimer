@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from 'react-native'
+import { Dimensions, Platform } from 'react-native'
 import fonts from './typography'
 import colors from './colors'
 
@@ -11,15 +11,16 @@ const window = Dimensions.get('window')
 //   return Math.round(ratio * w)
 // }
 
-// export const styled = StyleSheet.create({
-//   textTitleStyle: { color: colors.text, fontSize: ss(24), fontWeight: '100' },
-// })
+export const styled = {
+  fontFamily: { fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace' },
+}
 
 const Theme = {
   w: window.width,
   h: window.height,
   colors,
   fonts,
+  styled,
   // For components that don't scale, like Icon, Checkbox etc
   sizeXXS: 2,
   sizeXS: 4,

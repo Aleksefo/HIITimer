@@ -1,7 +1,8 @@
 import React from 'react'
-import { Text, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import Theme from '../values/Theme'
+import { DSText } from './index'
 
 const CircularProgress = ({ timeSession, timeSessionLeft }) => {
   const fillMultiplier = 100 / timeSession
@@ -26,7 +27,7 @@ const CircularProgress = ({ timeSession, timeSessionLeft }) => {
       arcSweepAngle={300}
       duration={500}
     >
-      {() => <Text style={s.time}>{`${minutes}:${seconds}`}</Text>}
+      {() => <DSText style={s.time}>{`${minutes}:${seconds}`}</DSText>}
     </AnimatedCircularProgress>
   )
 }

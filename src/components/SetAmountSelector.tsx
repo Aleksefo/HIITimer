@@ -1,7 +1,8 @@
 import React from 'react'
-import { StyleSheet, TouchableOpacity, Text } from 'react-native'
+import { StyleSheet, TouchableOpacity } from 'react-native'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
+import { DSText } from './index'
 
 const SetAmountSelector = props => {
   const dispatch = useDispatch()
@@ -21,7 +22,7 @@ const SetAmountSelector = props => {
         })
       }}
     >
-      <Text style={selectedStyle}>{props.amount}</Text>
+      <DSText style={selectedStyle}>{props.amount}</DSText>
     </TouchableOpacity>
   )
 }

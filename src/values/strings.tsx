@@ -5,13 +5,13 @@ const str = {
   pause: 'Pause',
   resume: 'Resume',
   // Configurator
-  sets: 'Sets',
-  set: 'Set',
-  rounds: 'Rounds',
-  timeTotal: 'Total time',
+  sets: 'SETS',
+  set: 'SET',
+  rounds: 'ROUNDS',
+  timeTotal: 'TOTAL TIME',
   // Timer
-  round: 'Round',
-  timeLeft: 'Time left',
+  round: 'ROUND',
+  timeLeft: 'TIME LEFT',
   // StopAlert
   stopAlertTitle: 'Are you sure you want to end the session?',
   stopAlertContinue: 'Continue',

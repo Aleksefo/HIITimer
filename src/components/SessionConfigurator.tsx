@@ -1,18 +1,18 @@
 import React from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import SetAmountSelector from './SetAmountSelector'
 import SetTimeSelector from './SetTimeSelector'
 import RoundAmountSelector from './RoundAmountSelector'
 import str from '../values/strings'
 import Theme from '../values/Theme'
-import { Spacing } from './index'
+import { DSText, Spacing } from './index'
 
 const SessionConfigurator = () => {
   return (
     <View style={styles.container}>
       <View style={styles.upperContainer}>
         <View style={styles.setContainer}>
-          <Text style={styles.setsTitle}>{str.sets.toUpperCase()}</Text>
+          <DSText style={styles.setsTitle}>{str.sets.toUpperCase()}</DSText>
           <View style={styles.selectorContainer}>
             <SetAmountSelector amount={2} />
             <SetAmountSelector amount={3} />

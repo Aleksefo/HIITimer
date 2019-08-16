@@ -1,9 +1,10 @@
 import React from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import str from '../values/strings'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
 import ButtonStepModifier from './ButtonStepModifier'
+import { DSText } from './index'
 
 const RoundAmountSelector = () => {
   const dispatch = useDispatch()
@@ -35,7 +36,7 @@ const RoundAmountSelector = () => {
   }
   return (
     <View>
-      <Text style={s.title}>{str.rounds.toUpperCase()}</Text>
+      <DSText style={s.title}>{str.rounds.toUpperCase()}</DSText>
       <View style={s.roundControlsContainer}>
         <ButtonStepModifier
           positive={false}
@@ -44,7 +45,7 @@ const RoundAmountSelector = () => {
             decrement()
           }}
         />
-        <Text style={s.controls}>{state.totalRounds}</Text>
+        <DSText style={s.controls}>{state.totalRounds}</DSText>
         <ButtonStepModifier
           onPress={() => {
             increment()
