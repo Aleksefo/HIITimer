@@ -13,6 +13,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		5E40B42AAB267150BAFDA5BD /* libPods-HIITimer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4F8D3BF5C5246929BB1B64 /* libPods-HIITimer.a */; };
 		6C7FAF17230430D100B56AC6 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C7FAF16230430D100B56AC6 /* AntDesign.ttf */; };
+		6C7FAF1B2308948800B56AC6 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C7FAF1A2308948800B56AC6 /* beep.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4F4F8D3BF5C5246929BB1B64 /* libPods-HIITimer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HIITimer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C376A35D31F152194B0DDC8 /* libPods-HIITimer-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HIITimer-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7FAF16230430D100B56AC6 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		6C7FAF1A2308948800B56AC6 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
 		8A33A3EE5F9E235F575BEAA3 /* Pods-HIITimer-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HIITimer-tvOS.release.xcconfig"; path = "Target Support Files/Pods-HIITimer-tvOS/Pods-HIITimer-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		B87FFE73C88AAB52651D332C /* libPods-HIITimer-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HIITimer-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAFB6E677ED582DBA97E190C /* Pods-HIITimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HIITimer.release.xcconfig"; path = "Target Support Files/Pods-HIITimer/Pods-HIITimer.release.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 		13B07FAE1A68108700A75B9A /* HIITimer */ = {
 			isa = PBXGroup;
 			children = (
+				6C7FAF1A2308948800B56AC6 /* beep.mp3 */,
 				6C7FAF16230430D100B56AC6 /* AntDesign.ttf */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -198,6 +201,7 @@
 			files = (
 				6C7FAF17230430D100B56AC6 /* AntDesign.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				6C7FAF1B2308948800B56AC6 /* beep.mp3 in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

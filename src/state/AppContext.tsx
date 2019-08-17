@@ -89,7 +89,6 @@ export const initialState: State = {
 }
 
 const appReducer = (state: State, action: Action): State => {
-  console.tron.log('AppContext, appReducer', action, state)
   switch (action.type) {
     case 'resetData':
       return {
@@ -118,12 +117,6 @@ const appReducer = (state: State, action: Action): State => {
         ...state,
         currentRound: state.currentRound + 1,
       }
-    // case 'setTimeSession':
-    //   return {
-    //     ...state,
-    //     timeSession: action.payload.time,
-    //     timeSessionLeft: action.payload.time,
-    //   }
     case 'setTimeSessionLeft':
       return {
         ...state,
