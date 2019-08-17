@@ -21,11 +21,14 @@ const SessionActivated = () => {
         timeSession={timeSession}
         timeSessionLeft={timeSessionLeft}
       />
-      <DSText style={s.title}>{`${str.set} ${currentSet}/${totalSets}`}</DSText>
       <DSText
         style={s.title}
-      >{`${str.round} ${currentRound}/${totalRounds}`}</DSText>
-      <Spacing xl />
+      >{`${str.set}  ${currentSet}/${totalSets}`}</DSText>
+      <Spacing m />
+      <DSText
+        style={s.title}
+      >{`${str.round}  ${currentRound}/${totalRounds}`}</DSText>
+      <Spacing m />
     </View>
   )
 }

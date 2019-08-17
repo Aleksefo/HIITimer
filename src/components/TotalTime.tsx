@@ -17,7 +17,7 @@ const TotalTime = () => {
     <View style={styles.container}>
       <DSText style={styles.time}>{`${
         counterStatus === 'stopped' ? str.timeTotal : str.timeLeft
-      } ${minutes}:${seconds}`}</DSText>
+      }  ${minutes}:${seconds}`}</DSText>
     </View>
   )
 }
