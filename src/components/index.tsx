@@ -5,6 +5,7 @@ import TotalTime from './TotalTime'
 import Spacing from './Spacing'
 import DSText from './DSText'
 import AnimatedText from './AnimatedText'
+import AnimatedBackground from './AnimatedBackground'
 
 export {
   Counter,
@@ -14,4 +15,5 @@ export {
   Spacing,
   DSText,
   AnimatedText,
+  AnimatedBackground,
 }
