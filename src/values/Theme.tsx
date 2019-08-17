@@ -13,7 +13,8 @@ const window = Dimensions.get('window')
 
 export const styled = {
   fontFamily: {
-    fontFamily: Platform.OS === 'ios' ? 'AvenirNext-Regular' : 'monospace',
+    fontFamily:
+      Platform.OS === 'ios' ? 'AvenirNext-Regular' : 'RobotoMono-Regular',
   },
 }
 
