@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native'
 import str from '../values/strings'
 import { useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
-import { DSText } from './index'
+import { AnimatedText, DSText } from './index'
 
 const TotalTime = () => {
   const { counterStatus, totalTimeLeft } = useGlobalState()
@@ -17,7 +17,10 @@ const TotalTime = () => {
     <View style={styles.container}>
       <DSText style={styles.time}>{`${
         counterStatus === 'stopped' ? str.timeTotal : str.timeLeft
-      }  ${minutes}:${seconds}`}</DSText>
+      }  `}</DSText>
+      <AnimatedText trigger={counterStatus === 'stopped' && totalTimeLeft}>
+        <DSText style={styles.time}>{`${minutes}:${seconds}`}</DSText>
+      </AnimatedText>
     </View>
   )
 }
@@ -25,6 +28,7 @@ const TotalTime = () => {
 const styles = StyleSheet.create({
   container: {
     alignSelf: 'center',
+    flexDirection: 'row',
   },
   time: {
     ...Theme.fonts.h3,
