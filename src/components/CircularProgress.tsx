@@ -3,8 +3,11 @@ import { StyleSheet } from 'react-native'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import Theme from '../values/Theme'
 import { DSText } from './index'
+import { useGlobalState } from '../state/AppContext'
+import str from '../values/strings'
 
 const CircularProgress = ({ timeSession, timeSessionLeft }) => {
+  const state = useGlobalState()
   const fillMultiplier = 100 / timeSession
   const fill = 100 - fillMultiplier * timeSessionLeft
 
@@ -27,7 +30,16 @@ const CircularProgress = ({ timeSession, timeSessionLeft }) => {
       arcSweepAngle={300}
       duration={500}
     >
-      {() => <DSText style={s.time}>{`${minutes}:${seconds}`}</DSText>}
+      {() => (
+        <>
+          {
+            <DSText>
+              {state.counterStatus === 'paused' ? str.paused : ' '}
+            </DSText>
+          }
+          <DSText style={s.time}>{`${minutes}:${seconds}`}</DSText>
+        </>
+      )}
     </AnimatedCircularProgress>
   )
 }

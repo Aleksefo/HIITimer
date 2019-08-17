@@ -12,6 +12,7 @@ const str = {
   // Timer
   round: 'ROUND',
   timeLeft: 'TIME LEFT',
+  paused: 'PAUSED',
   // StopAlert
   stopAlertTitle: 'Are you sure you want to end the session?',
   stopAlertContinue: 'Continue',
