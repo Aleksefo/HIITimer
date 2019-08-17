@@ -64,7 +64,13 @@ const s = StyleSheet.create({
     alignItems: 'center',
   },
   title: { ...Theme.fonts.h2 },
-  controls: { ...Theme.fonts.h3, margin: Theme.sizeS },
+  controls: {
+    ...Theme.fonts.h3,
+    margin: Theme.sizeS,
+    paddingHorizontal: Theme.sizeS,
+    width: Theme.sizeXXL,
+    textAlign: 'center',
+  },
 })
 
 export default RoundAmountSelector
