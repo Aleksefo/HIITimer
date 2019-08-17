@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet } from 'react-native'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import Theme from '../values/Theme'
-import { DSText } from './index'
+import { AnimatedText, DSText } from './index'
 import { useGlobalState } from '../state/AppContext'
 import str from '../values/strings'
 
@@ -37,7 +37,9 @@ const CircularProgress = ({ timeSession, timeSessionLeft }) => {
               {state.counterStatus === 'paused' ? str.paused : ' '}
             </DSText>
           }
-          <DSText style={s.time}>{`${minutes}:${seconds}`}</DSText>
+          <AnimatedText trigger={timeSessionLeft <= 5 && timeSessionLeft}>
+            <DSText style={s.time}>{`${minutes}:${seconds}`}</DSText>
+          </AnimatedText>
         </>
       )}
     </AnimatedCircularProgress>

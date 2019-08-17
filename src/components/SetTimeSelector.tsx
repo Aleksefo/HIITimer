@@ -5,7 +5,7 @@ import str from '../values/strings'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
 import ButtonStepModifier from './ButtonStepModifier'
-import { DSText, Spacing } from './index'
+import { AnimatedText, DSText, Spacing } from './index'
 
 const SetTimeSelector = props => {
   const { setNumber = 1 } = props
@@ -54,11 +54,13 @@ const SetTimeSelector = props => {
             decrement()
           }}
         />
-        <TimeInput
-          style={s.controls}
-          setNumber={setNumber - 1}
-          disabled={disabled}
-        />
+        <AnimatedText trigger={state.setsTime[setNumber - 1]}>
+          <TimeInput
+            style={s.controls}
+            setNumber={setNumber - 1}
+            disabled={disabled}
+          />
+        </AnimatedText>
         <ButtonStepModifier
           onPress={() => {
             increment()

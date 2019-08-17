@@ -8,19 +8,21 @@ const AnimatedText = props => {
   }
 
   useEffect(() => {
-    Animated.sequence([
-      Animated.timing(animation, {
-        toValue: 1.2,
-        duration: 100,
-        useNativeDriver: true,
-      }),
-      Animated.timing(animation, {
-        toValue: 1,
-        duration: 300,
-        useNativeDriver: true,
-        easing: Easing.bounce,
-      }),
-    ]).start()
+    if (!props.disabled) {
+      Animated.sequence([
+        Animated.timing(animation, {
+          toValue: 1.2,
+          duration: 100,
+          useNativeDriver: true,
+        }),
+        Animated.timing(animation, {
+          toValue: 1,
+          duration: 300,
+          useNativeDriver: true,
+          easing: Easing.bounce,
+        }),
+      ]).start()
+    }
     return () => {}
   }, [props.trigger])
 
