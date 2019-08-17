@@ -34,10 +34,23 @@ const DashboardScreen = () => {
     }
   }, [state.stateLoaded])
 
+  const backgroundStyle = () => {
+    let backgroundColor
+    if (state.counterStatus === 'stopped') backgroundColor = Theme.colors.white
+    else if (state.counterStatus === 'paused') backgroundColor = '#e6e6e5'
+    if (state.counterStatus === 'started') {
+      if (state.currentSet === 1) backgroundColor = '#d8e7e2'
+      else if (state.currentSet === 2) backgroundColor = '#f9eed8'
+      else if (state.currentSet === 3) backgroundColor = '#f5d5e5'
+      else if (state.currentSet === 4) backgroundColor = '#d6e4f7'
+    }
+    return { backgroundColor }
+  }
+
   return (
     <ScrollView
       keyboardShouldPersistTaps="handled"
-      contentContainerStyle={styles.container}
+      contentContainerStyle={[styles.container, backgroundStyle()]}
       bounces={false}
     >
       <KeyboardAvoidingView
