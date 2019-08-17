@@ -4,7 +4,7 @@ import str from '../values/strings'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
 import ButtonStepModifier from './ButtonStepModifier'
-import { DSText } from './index'
+import { DSText, AnimatedText } from './index'
 
 const RoundAmountSelector = () => {
   const dispatch = useDispatch()
@@ -45,7 +45,9 @@ const RoundAmountSelector = () => {
             decrement()
           }}
         />
-        <DSText style={s.controls}>{state.totalRounds}</DSText>
+        <AnimatedText trigger={state.totalRounds}>
+          <DSText style={s.controls}>{state.totalRounds}</DSText>
+        </AnimatedText>
         <ButtonStepModifier
           onPress={() => {
             increment()
