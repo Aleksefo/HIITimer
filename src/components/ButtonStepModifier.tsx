@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { StyleSheet, TouchableOpacity } from 'react-native'
 import Theme from '../values/Theme'
 import useInterval from '../state/useInterval'
-import { DSText } from './index'
+import Icon from 'react-native-vector-icons/AntDesign'
 
 type Props = {
   positive?: boolean
@@ -26,13 +26,17 @@ const ButtonStepModifier = ({ positive = true, disabled, onPress }: Props) => {
     pressed ? 500 : null,
   )
   const renderIcon = positive ? (
-    <DSText style={s.controls} disabled={disabled}>
-      +
-    </DSText>
+    <Icon
+      name={'plus'}
+      size={Theme.sizeM}
+      color={disabled ? Theme.colors.grey2 : Theme.colors.black}
+    />
   ) : (
-    <DSText style={s.controls} disabled={disabled}>
-      -
-    </DSText>
+    <Icon
+      name={'minus'}
+      size={Theme.sizeM}
+      color={disabled ? Theme.colors.grey2 : Theme.colors.black}
+    />
   )
   return (
     <TouchableOpacity

@@ -46,7 +46,7 @@ const SetTimeSelector = props => {
           style={s.title}
           disabled={disabled}
         >{`${str.set.toUpperCase()} ${setNumber}`}</DSText>
-        <Spacing m />
+        <Spacing xl />
         <ButtonStepModifier
           positive={false}
           disabled={state.setsTime[setNumber - 1] <= 1 || disabled}
