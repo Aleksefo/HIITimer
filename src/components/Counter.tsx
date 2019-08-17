@@ -1,9 +1,14 @@
 import React, { useEffect, useRef } from 'react'
-import { View } from 'react-native'
+import { Vibration, View } from 'react-native'
 import BackgroundTimer from './BackgroundTimer'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import CounterControls from './CounterControls'
-import { playBeep } from '../services/audioService'
+import {
+  playBeep,
+  playBeepAlt,
+  playBeepAltLong,
+  stopBeepAlt,
+} from '../services/audioService'
 
 const Counter = props => {
   const dispatch = useDispatch()
@@ -20,8 +25,32 @@ const Counter = props => {
         type: 'updateTotalTime',
       })
     }
-    if (state.counterStatus === 'started' && state.timeSessionLeft <= 2)
+    if (
+      state.counterStatus === 'started' &&
+      state.timeSessionLeft <= 2 &&
+      state.currentSet !== state.totalSets
+    ) {
       playBeep()
+      Vibration.vibrate(500)
+    } else if (
+      state.counterStatus === 'started' &&
+      state.timeSessionLeft <= 2 &&
+      state.currentSet === state.totalSets &&
+      state.currentRound !== state.totalRounds
+    ) {
+      playBeepAlt()
+      Vibration.vibrate(500)
+    } else if (
+      state.counterStatus === 'started' &&
+      state.timeSessionLeft <= 2 &&
+      state.currentSet === state.totalSets &&
+      state.currentRound === state.totalRounds
+    ) {
+      playBeepAltLong()
+      Vibration.vibrate(500)
+    } else if (state.counterStatus === 'stopped') {
+      stopBeepAlt()
+    }
   }, [state.timeSessionLeft])
 
   const startCount = () => {
