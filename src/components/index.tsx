@@ -4,6 +4,7 @@ import SessionActivated from './SessionActivated'
 import TotalTime from './TotalTime'
 import Spacing from './Spacing'
 import DSText from './DSText'
+import AnimatedText from './AnimatedText'
 
 export {
   Counter,
@@ -12,4 +13,5 @@ export {
   TotalTime,
   Spacing,
   DSText,
+  AnimatedText,
 }
