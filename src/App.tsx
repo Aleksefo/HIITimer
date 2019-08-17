@@ -1,10 +1,18 @@
 import React from 'react'
 import { Provider } from './state/AppContext'
 import DashboardScreen from './screens/DashboardScreen'
+import { Platform, StatusBar } from 'react-native'
+import Theme from './values/Theme'
 
 const App = () => {
   return (
     <Provider>
+      {Platform.OS === 'android' && (
+        <StatusBar
+          backgroundColor={Theme.colors.primaryColor}
+          barStyle="light-content"
+        />
+      )}
       <DashboardScreen />
     </Provider>
   )
