@@ -8,10 +8,11 @@ type State = {
   currentRound: number
   totalSets: number
   currentSet: number
-  timeSession: number //this.set1Time
-  timeSessionLeft: number //this.timeSession
+  timeSession: number
+  timeSessionLeft: number
   totalTimeLeft: number
   stateLoaded: boolean
+  volumeState: 'on' | 'vibro' | 'off'
 }
 type Action =
   | {
@@ -75,6 +76,10 @@ type Action =
         state: State
       }
     }
+  | {
+      type: 'changeVolumeState'
+    }
+
 export const initialState: State = {
   counterStatus: 'stopped',
   setsTime: [60, 60, 60, 60],
@@ -86,6 +91,7 @@ export const initialState: State = {
   timeSessionLeft: 60, //this.timeSession
   totalTimeLeft: 360,
   stateLoaded: false,
+  volumeState: 'on',
 }
 
 const appReducer = (state: State, action: Action): State => {
@@ -144,6 +150,8 @@ const appReducer = (state: State, action: Action): State => {
             counterStatus: 'stopped' as State['counterStatus'],
             timeSessionLeft: state.timeSession,
           }
+        default:
+          throw new Error('Undefined action ' + action)
       }
     case 'calculateTotalTime':
       let totalTime = state.setsTime[0] + state.setsTime[1]
@@ -192,6 +200,26 @@ const appReducer = (state: State, action: Action): State => {
         ...state,
         ...action.payload.state,
         stateLoaded: true,
+      }
+    case 'changeVolumeState':
+      switch (state.volumeState) {
+        case 'on':
+          return {
+            ...state,
+            volumeState: 'vibro',
+          }
+        case 'vibro':
+          return {
+            ...state,
+            volumeState: 'off',
+          }
+        case 'off':
+          return {
+            ...state,
+            volumeState: 'on',
+          }
+        default:
+          throw new Error('Undefined action ' + action)
       }
     default:
       throw new Error('Undefined action ' + action)

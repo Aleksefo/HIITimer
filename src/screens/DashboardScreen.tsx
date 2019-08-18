@@ -1,5 +1,10 @@
 import React, { useEffect } from 'react'
-import { StyleSheet, ScrollView, KeyboardAvoidingView } from 'react-native'
+import {
+  StyleSheet,
+  ScrollView,
+  KeyboardAvoidingView,
+  SafeAreaView,
+} from 'react-native'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import {
   Counter,
@@ -7,6 +12,7 @@ import {
   SessionActivated,
   TotalTime,
   AnimatedBackground,
+  SoundControls,
 } from '../components'
 import {
   checkFirstLaunch,
@@ -35,27 +41,39 @@ const DashboardScreen = () => {
     }
   }, [state.stateLoaded])
 
+  const changeVolumeState = () => {
+    dispatch({
+      type: 'changeVolumeState',
+    })
+  }
+
   return (
-    <ScrollView
-      keyboardShouldPersistTaps="handled"
-      contentContainerStyle={[styles.container]}
-      bounces={false}
-    >
-      <KeyboardAvoidingView
-        behavior="padding"
-        style={styles.main}
-        contentContainerStyle={styles.main}
+    <SafeAreaView style={s.safeArea}>
+      <ScrollView
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={[s.container]}
+        bounces={false}
       >
-        {state.counterStatus === 'stopped' ? (
-          <SessionConfigurator />
-        ) : (
-          <SessionActivated />
-        )}
-      </KeyboardAvoidingView>
-      <TotalTime />
-      <Counter style={styles.counter} />
-      <AnimatedBackground />
-    </ScrollView>
+        <SoundControls
+          onPress={changeVolumeState}
+          volumeState={state.volumeState}
+        />
+        <KeyboardAvoidingView
+          behavior="padding"
+          style={s.main}
+          contentContainerStyle={s.main}
+        >
+          {state.counterStatus === 'stopped' ? (
+            <SessionConfigurator />
+          ) : (
+            <SessionActivated />
+          )}
+        </KeyboardAvoidingView>
+        <TotalTime />
+        <Counter style={s.counter} />
+        <AnimatedBackground />
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 
@@ -65,10 +83,12 @@ export default React.memo(DashboardScreen)
 // argument to React.memo(): An evaluation function that receives the old and new
 // props as arguments and should return true if you want to re-render the component.
 
-const styles = StyleSheet.create({
+const s = StyleSheet.create({
+  safeArea: { flex: 1 },
   container: {
     flex: 1,
     paddingHorizontal: Theme.sizeXL,
+    paddingTop: Theme.sizeXL,
   },
   main: {
     flex: 4,
