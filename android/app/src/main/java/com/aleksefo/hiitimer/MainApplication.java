@@ -1,4 +1,4 @@
-package com.hiitimer;
+package com.aleksefo.hiitimer;
 
 import android.app.Application;
 import android.util.Log;

@@ -1,4 +1,4 @@
-package com.hiitimer;
+package com.aleksefo.hiitimer;
 
 // Splash
 import android.os.Bundle;
