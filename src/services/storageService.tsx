@@ -25,7 +25,7 @@ export const checkFirstLaunch = async ({ dispatch }) => {
       })
     }
   } catch (error) {
-    console.tron.log('retrieveData error ' + error)
+    if (__DEV__) console.tron.log('retrieveData error ' + error)
   }
 }
 
@@ -34,7 +34,8 @@ export const mergeAppState = async value => {
     await AsyncStorage.mergeItem(appStateKey, JSON.stringify(value))
 
     const state = await AsyncStorage.getItem(appStateKey)
-    console.tron.log('storageService, mergeAppState', JSON.parse(state))
+    if (__DEV__)
+      console.tron.log('storageService, mergeAppState', JSON.parse(state))
   } catch (e) {
     // read key error
   }
@@ -47,7 +48,7 @@ export const getAllKeys = async () => {
   } catch (e) {
     // read key error
   }
-  console.tron.log(keys)
+  if (__DEV__) console.tron.log(keys)
 }
 export const removeValue = async () => {
   try {
@@ -55,5 +56,5 @@ export const removeValue = async () => {
   } catch (e) {
     // remove error
   }
-  console.tron.log('storageService, removeValue')
+  if (__DEV__) console.tron.log('storageService, removeValue')
 }
