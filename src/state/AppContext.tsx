@@ -202,24 +202,14 @@ const appReducer = (state: State, action: Action): State => {
         stateLoaded: true,
       }
     case 'changeVolumeState':
-      switch (state.volumeState) {
-        case 'on':
-          return {
-            ...state,
-            volumeState: 'vibro',
-          }
-        case 'vibro':
-          return {
-            ...state,
-            volumeState: 'off',
-          }
-        case 'off':
-          return {
-            ...state,
-            volumeState: 'on',
-          }
-        default:
-          throw new Error('Undefined action ' + action)
+      let volumeState
+      if (state.volumeState === 'on') volumeState = 'vibro'
+      else if (state.volumeState === 'vibro') volumeState = 'off'
+      else volumeState = 'on'
+      mergeAppState({ volumeState })
+      return {
+        ...state,
+        volumeState,
       }
     default:
       throw new Error('Undefined action ' + action)
