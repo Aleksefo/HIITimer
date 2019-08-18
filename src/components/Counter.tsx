@@ -30,24 +30,24 @@ const Counter = props => {
       state.timeSessionLeft <= 2 &&
       state.currentSet !== state.totalSets
     ) {
-      playBeep()
-      Vibration.vibrate(500)
+      state.volumeState === 'on' && playBeep()
+      state.volumeState === 'vibro' && Vibration.vibrate(500)
     } else if (
       state.counterStatus === 'started' &&
       state.timeSessionLeft <= 2 &&
       state.currentSet === state.totalSets &&
       state.currentRound !== state.totalRounds
     ) {
-      playBeepAlt()
-      Vibration.vibrate(500)
+      state.volumeState === 'on' && playBeepAlt()
+      state.volumeState === 'vibro' && Vibration.vibrate(500)
     } else if (
       state.counterStatus === 'started' &&
       state.timeSessionLeft <= 2 &&
       state.currentSet === state.totalSets &&
       state.currentRound === state.totalRounds
     ) {
-      playBeepAltLong()
-      Vibration.vibrate(500)
+      state.volumeState === 'on' && playBeepAltLong()
+      state.volumeState === 'vibro' && Vibration.vibrate(500)
     } else if (state.counterStatus === 'stopped') {
       stopBeepAlt()
     }
