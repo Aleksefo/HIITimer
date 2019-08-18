@@ -24,7 +24,6 @@ const TimeInput = props => {
     }
   }
   const checkInput = () => {
-    console.log('TimeInput, checkInput', input)
     let number
     if (typeof input === 'string') {
       number = parseInt(input)
