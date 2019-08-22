@@ -5,7 +5,7 @@ import str from '../values/strings'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
 import ButtonStepModifier from './ButtonStepModifier'
-import { AnimatedText, DSText, Spacing } from './index'
+import { AnimatedText, DSText } from './index'
 
 const SetTimeSelector = props => {
   const { setNumber = 1 } = props
@@ -42,31 +42,34 @@ const SetTimeSelector = props => {
   return (
     <>
       <View style={s.timeControlsContainer}>
-        <DSText
-          style={s.title}
-          disabled={disabled}
-        >{`${str.set.toUpperCase()} ${setNumber}`}</DSText>
-        <Spacing xl />
-        <ButtonStepModifier
-          positive={false}
-          disabled={state.setsTime[setNumber - 1] <= 1 || disabled}
-          onPress={() => {
-            decrement()
-          }}
-        />
-        <AnimatedText trigger={state.setsTime[setNumber - 1]}>
-          <TimeInput
-            style={s.controls}
-            setNumber={setNumber - 1}
+        <View style={s.titleContainer}>
+          <DSText
+            style={s.title}
+            disabled={disabled}
+          >{`${str.set.toUpperCase()} ${setNumber}`}</DSText>
+        </View>
+        <View style={s.controlsContainer}>
+          <ButtonStepModifier
+            positive={false}
+            disabled={state.setsTime[setNumber - 1] <= 1 || disabled}
+            onPress={() => {
+              decrement()
+            }}
+          />
+          <AnimatedText trigger={state.setsTime[setNumber - 1]}>
+            <TimeInput
+              style={s.controls}
+              setNumber={setNumber - 1}
+              disabled={disabled}
+            />
+          </AnimatedText>
+          <ButtonStepModifier
+            onPress={() => {
+              increment()
+            }}
             disabled={disabled}
           />
-        </AnimatedText>
-        <ButtonStepModifier
-          onPress={() => {
-            increment()
-          }}
-          disabled={disabled}
-        />
+        </View>
       </View>
     </>
   )
@@ -75,12 +78,20 @@ const SetTimeSelector = props => {
 const s = StyleSheet.create({
   timeControlsContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
+    width: '100%',
   },
-  title: { ...Theme.fonts.bodyLarge },
+  titleContainer: { flex: 1 },
+  title: { ...Theme.fonts.h3 },
+  controlsContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
   controls: {
-    ...Theme.fonts.bodyLarge,
+    ...Theme.fonts.h3,
     textAlign: 'center',
     padding: 0,
     margin: 0,

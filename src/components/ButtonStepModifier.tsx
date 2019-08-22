@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, TouchableOpacity } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 import Theme from '../values/Theme'
 import useInterval from '../state/useInterval'
 import Icon from 'react-native-vector-icons/AntDesign'
@@ -52,10 +52,5 @@ const ButtonStepModifier = ({ positive = true, disabled, onPress }: Props) => {
     </TouchableOpacity>
   )
 }
-
-const s = StyleSheet.create({
-  controls: { ...Theme.fonts.body, marginHorizontal: Theme.sizeS },
-  disabled: { color: Theme.colors.grey2 },
-})
 
 export default ButtonStepModifier

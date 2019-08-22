@@ -9,58 +9,56 @@ import { DSText, Spacing } from './index'
 
 const SessionConfigurator = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.upperContainer}>
-        <View style={styles.setContainer}>
-          <DSText style={styles.setsTitle}>{str.sets.toUpperCase()}</DSText>
-          <View style={styles.selectorContainer}>
-            <SetAmountSelector amount={2} />
-            <SetAmountSelector amount={3} />
-            <SetAmountSelector amount={4} />
-          </View>
+    <View style={s.container}>
+      <View style={s.titleContainer}>
+        <DSText style={s.title}>{str.sets.toUpperCase()}</DSText>
+        <DSText style={s.title}>{str.rounds.toUpperCase()}</DSText>
+      </View>
+      <View style={s.titleContainer}>
+        <View style={s.selectorContainer}>
+          <SetAmountSelector amount={2} />
+          <SetAmountSelector amount={3} />
+          <SetAmountSelector amount={4} />
         </View>
         <RoundAmountSelector />
       </View>
-      <View style={styles.setsContainer}>
+      <View style={s.setsContainer}>
         <SetTimeSelector setNumber={1} />
-        <Spacing l />
+        <Spacing m />
         <SetTimeSelector setNumber={2} />
-        <Spacing l />
+        <Spacing m />
         <SetTimeSelector setNumber={3} />
-        <Spacing l />
+        <Spacing m />
         <SetTimeSelector setNumber={4} />
       </View>
     </View>
   )
 }
 
-const styles = StyleSheet.create({
+const s = StyleSheet.create({
   container: {
     justifyContent: 'flex-end',
-    alignItems: 'center',
     flex: 1,
   },
-  upperContainer: {
+  titleContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignSelf: 'stretch',
-    alignItems: 'flex-end',
-    flex: 1,
-  },
-  setContainer: {
-    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   selectorContainer: {
     flexDirection: 'row',
+    width: '30%',
+    marginVertical: Theme.sizeS,
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
-  setsTitle: {
+  title: {
     ...Theme.fonts.h2,
   },
   setsContainer: {
     alignItems: 'center',
     justifyContent: 'flex-end',
     paddingVertical: Theme.sizeXL,
+    width: '100%',
   },
 })
 

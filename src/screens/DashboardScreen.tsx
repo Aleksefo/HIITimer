@@ -58,11 +58,7 @@ const DashboardScreen = () => {
           onPress={changeVolumeState}
           volumeState={state.volumeState}
         />
-        <KeyboardAvoidingView
-          behavior="padding"
-          style={s.main}
-          contentContainerStyle={s.main}
-        >
+        <KeyboardAvoidingView behavior="padding" style={s.main}>
           {state.counterStatus === 'stopped' ? (
             <SessionConfigurator />
           ) : (

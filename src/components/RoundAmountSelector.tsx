@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import str from '../values/strings'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import Theme from '../values/Theme'
 import ButtonStepModifier from './ButtonStepModifier'
@@ -35,35 +34,32 @@ const RoundAmountSelector = () => {
     })
   }
   return (
-    <View>
-      <DSText style={s.title}>{str.rounds.toUpperCase()}</DSText>
-      <View style={s.roundControlsContainer}>
-        <ButtonStepModifier
-          positive={false}
-          disabled={state.totalRounds <= 1}
-          onPress={() => {
-            decrement()
-          }}
-        />
-        <AnimatedText trigger={state.totalRounds}>
-          <DSText style={s.controls}>{state.totalRounds}</DSText>
-        </AnimatedText>
-        <ButtonStepModifier
-          onPress={() => {
-            increment()
-          }}
-        />
-      </View>
+    <View style={s.roundControlsContainer}>
+      <ButtonStepModifier
+        positive={false}
+        disabled={state.totalRounds <= 1}
+        onPress={() => {
+          decrement()
+        }}
+      />
+      <AnimatedText trigger={state.totalRounds}>
+        <DSText style={s.controls}>{state.totalRounds}</DSText>
+      </AnimatedText>
+      <ButtonStepModifier
+        onPress={() => {
+          increment()
+        }}
+      />
     </View>
   )
 }
 const s = StyleSheet.create({
   roundControlsContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
+    width: '50%',
   },
-  title: { ...Theme.fonts.h2 },
   controls: {
     ...Theme.fonts.h3,
     margin: Theme.sizeS,
