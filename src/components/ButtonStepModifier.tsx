@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TouchableOpacity } from 'react-native'
+import { StyleSheet, TouchableOpacity } from 'react-native'
 import Theme from '../values/Theme'
 import useInterval from '../state/useInterval'
 import Icon from 'react-native-vector-icons/AntDesign'
@@ -29,13 +29,21 @@ const ButtonStepModifier = ({ positive = true, disabled, onPress }: Props) => {
     <Icon
       name={'plus'}
       size={Theme.sizeM}
-      color={disabled ? Theme.colors.grey2 : Theme.colors.black}
+      color={disabled ? Theme.colors.grey3 : Theme.colors.white}
+      style={{
+        height: Theme.sizeM,
+        width: Theme.sizeM,
+      }}
     />
   ) : (
     <Icon
       name={'minus'}
       size={Theme.sizeM}
-      color={disabled ? Theme.colors.grey2 : Theme.colors.black}
+      color={disabled ? Theme.colors.grey3 : Theme.colors.white}
+      style={{
+        height: Theme.sizeM,
+        width: Theme.sizeM,
+      }}
     />
   )
   return (
@@ -47,10 +55,40 @@ const ButtonStepModifier = ({ positive = true, disabled, onPress }: Props) => {
         setDelay(500)
       }}
       disabled={disabled}
+      style={[s.button, disabled && s.disabledButton]}
     >
       {renderIcon}
     </TouchableOpacity>
   )
 }
+const s = StyleSheet.create({
+  button: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Theme.colors.primaryColor,
+    width: 24,
+    height: 24,
+    borderRadius: 24,
+    shadowColor: Theme.colors.black,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
 
+    elevation: 5,
+  },
+  disabledButton: {
+    backgroundColor: Theme.colors.grey2,
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0,
+    shadowRadius: 0,
+
+    elevation: 1,
+  },
+})
 export default ButtonStepModifier

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Platform } from 'react-native'
 import TimeInput from './TimeInput'
 import str from '../values/strings'
 import { useDispatch, useGlobalState } from '../state/AppContext'
@@ -94,6 +94,7 @@ const s = StyleSheet.create({
     ...Theme.fonts.h3,
     textAlign: 'center',
     padding: 0,
+    paddingTop: Platform.OS === 'ios' ? 3 : 0,
     margin: 0,
     paddingHorizontal: Theme.sizeS,
     width: Theme.sizeXXL,
