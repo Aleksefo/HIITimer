@@ -17,10 +17,10 @@ const AnimatedBackground = props => {
     if (state.counterStatus === 'stopped') backgroundColor = Theme.colors.white
     else if (state.counterStatus === 'paused') backgroundColor = '#e6e6e5'
     else if (state.counterStatus === 'started') {
-      if (state.currentSet === 1) backgroundColor = '#d8e7e2'
-      else if (state.currentSet === 2) backgroundColor = '#f9eed8'
-      else if (state.currentSet === 3) backgroundColor = '#f5d5e5'
-      else if (state.currentSet === 4) backgroundColor = '#d6e4f7'
+      if (state.currentSet === 1) backgroundColor = '#b4e7be'
+      else if (state.currentSet === 2) backgroundColor = '#f8f9b6'
+      else if (state.currentSet === 3) backgroundColor = '#f5afb9'
+      else if (state.currentSet === 4) backgroundColor = '#9ec1f7'
     }
     return backgroundColor
   }
