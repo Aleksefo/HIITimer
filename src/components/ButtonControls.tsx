@@ -5,7 +5,11 @@ import Icon from 'react-native-vector-icons/AntDesign'
 
 const ButtonControls = props => {
   return (
-    <TouchableOpacity {...props} style={[styles.button, props.style]}>
+    <TouchableOpacity
+      {...props}
+      style={[styles.button, props.style]}
+      hitSlop={{ top: 12, right: 12, bottom: 12, left: 12 }}
+    >
       <Icon
         name={props.iconName}
         size={32}
@@ -14,7 +18,6 @@ const ButtonControls = props => {
           height: 32,
           width: 32,
         }}
-        hitSlop={{ top: 12, right: 12, bottom: 12, left: 12 }}
       />
     </TouchableOpacity>
   )
