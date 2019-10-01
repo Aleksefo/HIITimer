@@ -87,8 +87,8 @@ export const initialState: State = {
   currentRound: 1,
   totalSets: 3,
   currentSet: 1,
-  timeSession: 60, //this.set1Time
-  timeSessionLeft: 60, //this.timeSession
+  timeSession: 60,
+  timeSessionLeft: 60,
   totalTimeLeft: 360,
   stateLoaded: false,
   volumeState: 'on',

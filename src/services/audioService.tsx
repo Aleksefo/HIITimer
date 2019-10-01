@@ -3,7 +3,7 @@ import Sound from 'react-native-sound'
 Sound.setCategory('Ambient', true)
 
 const beep = new Sound('beep.mp3', Sound.MAIN_BUNDLE, error =>
-  console.log(error),
+  console.log(error), //todo replace logs with crash reporting tool
 )
 export const playBeep = () => {
   beep.play()
