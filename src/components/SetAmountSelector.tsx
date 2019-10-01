@@ -21,6 +21,7 @@ const SetAmountSelector = props => {
           type: 'calculateTotalTime',
         })
       }}
+      hitSlop={{ top: 12, right: 12, bottom: 12, left: 12 }}
     >
       <AnimatedText trigger={state.totalSets === props.amount}>
         <DSText style={selectedStyle}>{props.amount}</DSText>

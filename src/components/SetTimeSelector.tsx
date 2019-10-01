@@ -96,7 +96,6 @@ const s = StyleSheet.create({
     padding: 0,
     paddingTop: Platform.OS === 'ios' ? 3 : 0,
     margin: 0,
-    paddingHorizontal: Theme.sizeS,
     width: Theme.sizeXXL,
   },
 })

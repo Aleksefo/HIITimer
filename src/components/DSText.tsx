@@ -2,7 +2,12 @@ import React from 'react'
 import { Text } from 'react-native'
 import Theme from '../values/Theme'
 
-const DSText = props => {
+type Props = {
+  disabled: boolean
+  style?: Object
+}
+
+const DSText = (props: Props) => {
   let textStyle = { fontFamily: null, color: null }
   textStyle.color = props.disabled ? Theme.colors.grey2 : Theme.colors.black
   return (

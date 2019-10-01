@@ -14,6 +14,7 @@ const ButtonControls = props => {
           height: 32,
           width: 32,
         }}
+        hitSlop={{ top: 12, right: 12, bottom: 12, left: 12 }}
       />
     </TouchableOpacity>
   )

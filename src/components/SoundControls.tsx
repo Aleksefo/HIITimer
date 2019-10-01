@@ -9,9 +9,19 @@ const SoundControls = props => {
     else return 'volume-off'
   }
   return (
-    <TouchableOpacity {...props} style={[props.style]}>
-      <Icon name={iconName()} size={Theme.sizeXL} color={Theme.colors.black} />
-    </TouchableOpacity>
+    <>
+      <TouchableOpacity
+        {...props}
+        style={[props.style]}
+        hitSlop={{ top: 15, right: 15, bottom: 15, left: 15 }}
+      >
+        <Icon
+          name={iconName()}
+          size={Theme.sizeXL}
+          color={Theme.colors.black}
+        />
+      </TouchableOpacity>
+    </>
   )
 }
 

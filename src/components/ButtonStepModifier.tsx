@@ -56,6 +56,7 @@ const ButtonStepModifier = ({ positive = true, disabled, onPress }: Props) => {
       }}
       disabled={disabled}
       style={[s.button, disabled && s.disabledButton]}
+      hitSlop={{ top: 12, right: 12, bottom: 12, left: 12 }}
     >
       {renderIcon}
     </TouchableOpacity>
