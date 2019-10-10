@@ -46,6 +46,11 @@ const DashboardScreen = () => {
       type: 'changeVolumeState',
     })
   }
+  const iconName = () => {
+    if (state.volumeState === 'on') return 'volume-up'
+    else if (state.volumeState === 'vibro') return 'vibration'
+    else return 'volume-off'
+  }
 
   return (
     <SafeAreaView style={s.safeArea}>
@@ -54,10 +59,7 @@ const DashboardScreen = () => {
         contentContainerStyle={[s.container]}
         bounces={false}
       >
-        <SoundControls
-          onPress={changeVolumeState}
-          volumeState={state.volumeState}
-        />
+        <SoundControls onPress={changeVolumeState} icon={iconName} />
         <KeyboardAvoidingView behavior="padding" style={s.main}>
           {state.counterStatus === 'stopped' ? (
             <SessionConfigurator />
