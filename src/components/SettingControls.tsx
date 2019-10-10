@@ -2,7 +2,10 @@ import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Theme from '../values/Theme'
-const SoundControls = props => {
+import { useGlobalState } from '../state/AppContext'
+const SettingControls = props => {
+  const state = useGlobalState()
+
   return (
     <>
       <TouchableOpacity
@@ -10,14 +13,10 @@ const SoundControls = props => {
         style={[props.style]}
         hitSlop={{ top: 15, right: 15, bottom: 15, left: 15 }}
       >
-        <Icon
-          name={props.icon}
-          size={Theme.sizeXL}
-          color={Theme.colors.black}
-        />
+        <Icon name={props.icon} size={Theme.sizeXL} color={state.theme.text} />
       </TouchableOpacity>
     </>
   )
 }
 
-export default SoundControls
+export default SettingControls

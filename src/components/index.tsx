@@ -6,7 +6,7 @@ import Spacing from './Spacing'
 import DSText from './DSText'
 import AnimatedText from './AnimatedText'
 import AnimatedBackground from './AnimatedBackground'
-import SoundControls from './SoundControls'
+import SettingControls from './SettingControls'
 
 export {
   Counter,
@@ -17,5 +17,5 @@ export {
   DSText,
   AnimatedText,
   AnimatedBackground,
-  SoundControls,
+  SettingControls,
 }

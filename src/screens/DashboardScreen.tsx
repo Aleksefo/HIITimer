@@ -4,6 +4,7 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   SafeAreaView,
+  View,
 } from 'react-native'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import {
@@ -12,7 +13,7 @@ import {
   SessionActivated,
   TotalTime,
   AnimatedBackground,
-  SoundControls,
+  SettingControls,
 } from '../components'
 import {
   checkFirstLaunch,
@@ -51,7 +52,11 @@ const DashboardScreen = () => {
     else if (state.volumeState === 'vibro') return 'vibration'
     else return 'volume-off'
   }
-
+  const changeThemeState = () => {
+    dispatch({
+      type: 'changeThemeState',
+    })
+  }
   return (
     <SafeAreaView style={s.safeArea}>
       <ScrollView
@@ -59,7 +64,10 @@ const DashboardScreen = () => {
         contentContainerStyle={[s.container]}
         bounces={false}
       >
-        <SoundControls onPress={changeVolumeState} icon={iconName} />
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <SettingControls onPress={changeVolumeState} icon={iconName()} />
+          <SettingControls onPress={changeThemeState} icon={'brightness-4'} />
+        </View>
         <KeyboardAvoidingView behavior="padding" style={s.main}>
           {state.counterStatus === 'stopped' ? (
             <SessionConfigurator />
@@ -69,7 +77,7 @@ const DashboardScreen = () => {
         </KeyboardAvoidingView>
         <TotalTime />
         <Counter style={s.counter} />
-        <AnimatedBackground />
+        <AnimatedBackground></AnimatedBackground>
       </ScrollView>
     </SafeAreaView>
   )

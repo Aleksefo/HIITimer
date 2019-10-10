@@ -24,8 +24,8 @@ const CircularProgress = ({ timeSession, timeSessionLeft }) => {
       backgroundWidth={Theme.sizeM - 4}
       fill={fill}
       prefill={100}
-      tintColor={Theme.colors.primaryColor}
-      backgroundColor={Theme.colors.grey3}
+      tintColor={state.theme.primary}
+      backgroundColor={state.theme.grey3}
       rotation={210}
       arcSweepAngle={300}
       duration={500}

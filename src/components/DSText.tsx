@@ -1,15 +1,19 @@
 import React from 'react'
 import { Text } from 'react-native'
 import Theme from '../values/Theme'
+import { useGlobalState } from '../state/AppContext'
 
 type Props = {
-  disabled: boolean
+  disabled?: boolean
   style?: Object
+  children: string | number
 }
 
 const DSText = (props: Props) => {
+  const state = useGlobalState()
+
   let textStyle = { fontFamily: null, color: null }
-  textStyle.color = props.disabled ? Theme.colors.grey2 : Theme.colors.black
+  textStyle.color = props.disabled ? state.theme.grey2 : state.theme.text
   return (
     <Text
       {...props}

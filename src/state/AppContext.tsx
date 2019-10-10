@@ -1,5 +1,6 @@
 import React, { useReducer, useContext, createContext, Dispatch } from 'react'
 import { mergeAppState } from '../services/storageService'
+import themes from '../values/themes'
 
 type State = {
   counterStatus: 'stopped' | 'started' | 'paused'
@@ -13,6 +14,20 @@ type State = {
   totalTimeLeft: number
   stateLoaded: boolean
   volumeState: 'on' | 'vibro' | 'off'
+  themeState: 'light' | 'dark'
+  theme: {
+    primary
+    accent
+    error
+    success
+    text
+    grey1
+    grey2
+    grey3
+    grey4
+    background
+    white
+  }
 }
 type Action =
   | {
@@ -79,6 +94,9 @@ type Action =
   | {
       type: 'changeVolumeState'
     }
+  | {
+      type: 'changeThemeState'
+    }
 
 export const initialState: State = {
   counterStatus: 'stopped',
@@ -92,6 +110,8 @@ export const initialState: State = {
   totalTimeLeft: 360,
   stateLoaded: false,
   volumeState: 'on',
+  themeState: 'light',
+  theme: themes.light,
 }
 
 const appReducer = (state: State, action: Action): State => {
@@ -210,6 +230,22 @@ const appReducer = (state: State, action: Action): State => {
       return {
         ...state,
         volumeState,
+      }
+    case 'changeThemeState':
+      let themeState
+      let theme
+      if (state.themeState === 'light') {
+        themeState = 'dark'
+        theme = themes.dark
+      } else {
+        themeState = 'light'
+        theme = themes.light
+      }
+      mergeAppState({ themeState, theme })
+      return {
+        ...state,
+        themeState,
+        theme,
       }
     default:
       throw new Error('Undefined action ' + action)
