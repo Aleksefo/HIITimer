@@ -5,6 +5,7 @@ import {
   KeyboardAvoidingView,
   SafeAreaView,
   View,
+  StatusBar,
 } from 'react-native'
 import { useDispatch, useGlobalState } from '../state/AppContext'
 import {
@@ -39,6 +40,11 @@ const DashboardScreen = () => {
   useEffect(() => {
     if (state.stateLoaded) {
       RNBootSplash.hide({ duration: 500 })
+      if (state.themeState === 'light') {
+        StatusBar.setBarStyle('dark-content', true)
+      } else {
+        StatusBar.setBarStyle('light-content', true)
+      }
     }
   }, [state.stateLoaded])
 
@@ -77,8 +83,8 @@ const DashboardScreen = () => {
         </KeyboardAvoidingView>
         <TotalTime />
         <Counter style={s.counter} />
-        <AnimatedBackground></AnimatedBackground>
       </ScrollView>
+      <AnimatedBackground />
     </SafeAreaView>
   )
 }

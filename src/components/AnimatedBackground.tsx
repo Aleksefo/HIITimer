@@ -31,7 +31,7 @@ const AnimatedBackground = props => {
       Animated.sequence([
         Animated.timing(animation, {
           toValue: 1,
-          duration: 1,
+          duration: 0,
           useNativeDriver: true,
         }),
         Animated.timing(animation, {

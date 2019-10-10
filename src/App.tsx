@@ -1,18 +1,18 @@
 import React from 'react'
-import { Provider } from './state/AppContext'
+import { Provider, useGlobalState } from './state/AppContext'
 import DashboardScreen from './screens/DashboardScreen'
-import { Platform, StatusBar } from 'react-native'
-import Theme from './values/Theme'
+import { StatusBar } from 'react-native'
 
 const App = () => {
+  const state = useGlobalState()
+
   return (
     <Provider>
-      {Platform.OS === 'android' && (
-        <StatusBar
-          backgroundColor={Theme.colors.primaryColor}
-          barStyle="light-content"
-        />
-      )}
+      <StatusBar
+        backgroundColor={state.theme.primary}
+        barStyle="light-content"
+        translucent={true}
+      />
       <DashboardScreen />
     </Provider>
   )
