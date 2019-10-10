@@ -1,6 +1,5 @@
 import { Dimensions, Platform } from 'react-native'
 import fonts from './typography'
-import colors from './colors'
 
 const window = Dimensions.get('window')
 
@@ -21,7 +20,6 @@ export const styled = {
 const Theme = {
   w: window.width,
   h: window.height,
-  colors,
   fonts,
   styled,
   // For components that don't scale, like Icon, Checkbox etc
