@@ -19,9 +19,9 @@ const themes = {
     success: '#40e6b3',
     text: '#ffffff',
     grey1: '#edeced',
-    grey2: '#c5c9cb', //inactiveLight
-    grey3: '#555a5e',
-    grey4: '#333537',
+    grey2: '#46494c', //inactiveLight
+    grey3: '#686e73',
+    grey4: '#c5c9cb',
     background: '#000000',
     white: '#ffffff',
   },

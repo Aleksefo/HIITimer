@@ -9,7 +9,7 @@ const App = () => {
   return (
     <Provider>
       <StatusBar
-        backgroundColor={state.theme.primary}
+        backgroundColor={state.theme.background}
         barStyle="light-content"
         translucent={true}
       />
