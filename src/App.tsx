@@ -9,9 +9,8 @@ const App = () => {
   return (
     <Provider>
       <StatusBar
-        backgroundColor={state.theme.background}
+        backgroundColor={state.theme.primary}
         barStyle="light-content"
-        translucent={true}
       />
       <DashboardScreen />
     </Provider>

@@ -10,6 +10,11 @@ const themes = {
     grey3: '#555a5e',
     grey4: '#333537',
     background: '#ffffff',
+    backgroundSet1: '#b4e7be',
+    backgroundSet2: '#f8f9b6',
+    backgroundSet3: '#f5afb9',
+    backgroundSet4: '#9ec1f7',
+    backgroundPaused: '#e6e6e5',
     white: '#ffffff',
   },
   dark: {
@@ -23,6 +28,11 @@ const themes = {
     grey3: '#686e73',
     grey4: '#c5c9cb',
     background: '#000000',
+    backgroundSet1: '#00551e',
+    backgroundSet2: '#736e00',
+    backgroundSet3: '#55000f',
+    backgroundSet4: '#002655',
+    backgroundPaused: '#555554',
     white: '#ffffff',
   },
 }

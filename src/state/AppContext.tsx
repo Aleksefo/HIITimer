@@ -1,7 +1,7 @@
 import React, { useReducer, useContext, createContext, Dispatch } from 'react'
 import { mergeAppState } from '../services/storageService'
 import themes from '../values/themes'
-import { StatusBar } from 'react-native'
+import { Platform, StatusBar } from 'react-native'
 
 type State = {
   counterStatus: 'stopped' | 'started' | 'paused'
@@ -27,6 +27,11 @@ type State = {
     grey3
     grey4
     background
+    backgroundSet1
+    backgroundSet2
+    backgroundSet3
+    backgroundSet4
+    backgroundPaused
     white
   }
 }
@@ -235,7 +240,8 @@ const appReducer = (state: State, action: Action): State => {
     case 'changeThemeState':
       let themeState
       let theme
-      StatusBar.setBarStyle(state.themeState + '-content', true)
+      Platform.OS === 'ios' &&
+        StatusBar.setBarStyle(state.themeState + '-content', true)
       if (state.themeState === 'light') {
         themeState = 'dark'
         theme = themes.dark

@@ -12,7 +12,7 @@ const ButtonControls = props => {
       style={[
         {
           backgroundColor: state.theme.primary,
-          shadowColor: state.theme.text,
+          shadowColor: state.theme.primary,
         },
         styles.button,
         props.style,
