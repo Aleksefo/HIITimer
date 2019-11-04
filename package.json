@@ -8,12 +8,15 @@
     "lint": "eslint .",
     "and": "react-native run-android",
     "ios": "react-native run-ios",
-    "ac": "cd android && ./gradlew clean && cd -",
+    "clean": "cd android && ./gradlew clean && cd -",
     "emul": "cd ../../Library/Android/sdk/tools/ && ./emulator -avd Nexus_5X_API_25",
     "pod": "cd ios && pod install && cd -"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.1",
+    "appcenter": "^2.5.0",
+    "appcenter-analytics": "^2.5.0",
+    "appcenter-crashes": "^2.5.0",
     "react": "16.8.6",
     "react-native": "0.60.4",
     "react-native-background-timer": "^2.2.0-alpha.0",
