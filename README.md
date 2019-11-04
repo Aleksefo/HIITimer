@@ -2,7 +2,7 @@
 
 Achieve your cardio and weight loss goals with this interval timer app.
 
-[Available on Google Play](https://play.google.com/store/apps/details?id=com.aleksefo.wastickers)
+[Available on Google Play](https://play.google.com/store/apps/details?id=com.aleksefo.hiitimer)
 
 [Available on App Store](https://apps.apple.com/us/app/interval-hiit-tabata-timer/id1482031147?ls=1)
 
