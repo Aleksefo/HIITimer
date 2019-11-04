@@ -1,4 +1,4 @@
-import { Dimensions, Platform } from 'react-native'
+import {Dimensions, Platform} from 'react-native'
 import fonts from './typography'
 
 const window = Dimensions.get('window')

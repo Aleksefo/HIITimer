@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react'
-import { Vibration, View } from 'react-native'
+import React, {useEffect, useRef} from 'react'
+import {Vibration, View} from 'react-native'
 import BackgroundTimer from './BackgroundTimer'
-import { useDispatch, useGlobalState } from '../state/AppContext'
+import {useDispatch, useGlobalState} from '../state/AppContext'
 import CounterControls from './CounterControls'
 import {
   playBeep,
@@ -56,7 +56,7 @@ const Counter = props => {
   const startCount = () => {
     dispatch({
       type: 'changeStatus',
-      payload: { command: 'start' },
+      payload: {command: 'start'},
     })
     dispatch({
       type: 'calculateTotalTime',
@@ -67,21 +67,21 @@ const Counter = props => {
     counterRef.current.stopCount()
     dispatch({
       type: 'changeStatus',
-      payload: { command: 'pause' },
+      payload: {command: 'pause'},
     })
   }
   const resumeCount = () => {
     counterRef.current.startCount(50)
     dispatch({
       type: 'changeStatus',
-      payload: { command: 'resume' },
+      payload: {command: 'resume'},
     })
   }
   const stopCount = () => {
     counterRef.current.stopCount()
     dispatch({
       type: 'changeStatus',
-      payload: { command: 'stop' },
+      payload: {command: 'stop'},
     })
     dispatch({
       type: 'resetData',
@@ -115,7 +115,7 @@ const Counter = props => {
   const onTick = timeLeft => {
     dispatch({
       type: 'setTimeSessionLeft',
-      payload: { timeSessionLeft: Math.round(timeLeft / 1000) },
+      payload: {timeSessionLeft: Math.round(timeLeft / 1000)},
     })
   }
   //todo maybe improve total time calculations based on time diff(not time left) tick provides

@@ -1,12 +1,12 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
-import { AnimatedCircularProgress } from 'react-native-circular-progress'
+import {StyleSheet} from 'react-native'
+import {AnimatedCircularProgress} from 'react-native-circular-progress'
 import Theme from '../values/Theme'
-import { AnimatedText, DSText } from './index'
-import { useGlobalState } from '../state/AppContext'
+import {AnimatedText, DSText} from './index'
+import {useGlobalState} from '../state/AppContext'
 import str from '../values/strings'
 
-const CircularProgress = ({ timeSession, timeSessionLeft }) => {
+const CircularProgress = ({timeSession, timeSessionLeft}) => {
   const state = useGlobalState()
   const fillMultiplier = 100 / timeSession
   const fill = 100 - fillMultiplier * timeSessionLeft
@@ -28,8 +28,7 @@ const CircularProgress = ({ timeSession, timeSessionLeft }) => {
       backgroundColor={state.theme.grey3}
       rotation={210}
       arcSweepAngle={300}
-      duration={500}
-    >
+      duration={500}>
       {() => (
         <>
           {
@@ -47,7 +46,7 @@ const CircularProgress = ({ timeSession, timeSessionLeft }) => {
 }
 
 const s = StyleSheet.create({
-  time: { ...Theme.fonts.h1 },
+  time: {...Theme.fonts.h1},
 })
 
 export default CircularProgress

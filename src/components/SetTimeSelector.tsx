@@ -1,14 +1,14 @@
 import React from 'react'
-import { View, StyleSheet, Platform } from 'react-native'
+import {View, StyleSheet, Platform} from 'react-native'
 import TimeInput from './TimeInput'
 import str from '../values/strings'
-import { useDispatch, useGlobalState } from '../state/AppContext'
+import {useDispatch, useGlobalState} from '../state/AppContext'
 import Theme from '../values/Theme'
 import ButtonStepModifier from './ButtonStepModifier'
-import { AnimatedText, DSText } from './index'
+import {AnimatedText, DSText} from './index'
 
 const SetTimeSelector = props => {
-  const { setNumber = 1 } = props
+  const {setNumber = 1} = props
   const dispatch = useDispatch()
   const state = useGlobalState()
 
@@ -45,8 +45,9 @@ const SetTimeSelector = props => {
         <View style={s.titleContainer}>
           <DSText
             style={s.title}
-            disabled={disabled}
-          >{`${str.set.toUpperCase()} ${setNumber}`}</DSText>
+            disabled={
+              disabled
+            }>{`${str.set.toUpperCase()} ${setNumber}`}</DSText>
         </View>
         <View style={s.controlsContainer}>
           <ButtonStepModifier
@@ -82,8 +83,8 @@ const s = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
   },
-  titleContainer: { flex: 1 },
-  title: { ...Theme.fonts.h3 },
+  titleContainer: {flex: 1},
+  title: {...Theme.fonts.h3},
   controlsContainer: {
     flex: 1,
     flexDirection: 'row',

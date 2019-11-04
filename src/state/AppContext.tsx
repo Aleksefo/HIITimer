@@ -1,7 +1,7 @@
-import React, { useReducer, useContext, createContext, Dispatch } from 'react'
-import { mergeAppState } from '../services/storageService'
+import React, {useReducer, useContext, createContext, Dispatch} from 'react'
+import {mergeAppState} from '../services/storageService'
 import themes from '../values/themes'
-import { Platform, StatusBar } from 'react-native'
+import {Platform, StatusBar} from 'react-native'
 
 type State = {
   counterStatus: 'stopped' | 'started' | 'paused'
@@ -164,7 +164,7 @@ const appReducer = (state: State, action: Action): State => {
             timeSessionLeft: state.setsTime[0],
           }
         case 'pause':
-          return { ...state, counterStatus: 'paused' as State['counterStatus'] }
+          return {...state, counterStatus: 'paused' as State['counterStatus']}
         case 'resume':
           return {
             ...state,
@@ -199,7 +199,7 @@ const appReducer = (state: State, action: Action): State => {
       }
     case 'changeSetAmount':
       let totalSets = action.payload.amount
-      mergeAppState({ totalSets })
+      mergeAppState({totalSets})
       return {
         ...state,
         totalSets,
@@ -207,7 +207,7 @@ const appReducer = (state: State, action: Action): State => {
     case 'changeSetDuration':
       let setsTime = [...state.setsTime]
       setsTime.splice(action.payload.setNumber, 1, action.payload.duration)
-      mergeAppState({ setsTime })
+      mergeAppState({setsTime})
       return {
         ...state,
         setsTime: setsTime,
@@ -216,7 +216,7 @@ const appReducer = (state: State, action: Action): State => {
       }
     case 'changeRoundsAmount':
       let totalRounds = action.payload.amount
-      mergeAppState({ totalRounds })
+      mergeAppState({totalRounds})
       return {
         ...state,
         totalRounds,
@@ -232,7 +232,7 @@ const appReducer = (state: State, action: Action): State => {
       if (state.volumeState === 'on') volumeState = 'vibro'
       else if (state.volumeState === 'vibro') volumeState = 'off'
       else volumeState = 'on'
-      mergeAppState({ volumeState })
+      mergeAppState({volumeState})
       return {
         ...state,
         volumeState,
@@ -249,7 +249,7 @@ const appReducer = (state: State, action: Action): State => {
         themeState = 'light'
         theme = themes.light
       }
-      mergeAppState({ themeState, theme })
+      mergeAppState({themeState, theme})
       return {
         ...state,
         themeState,
@@ -263,7 +263,7 @@ const appReducer = (state: State, action: Action): State => {
 const StateCtx = createContext(initialState)
 const DispatchCtx = createContext((() => 0) as Dispatch<Action>)
 
-export const Provider = ({ children }) => {
+export const Provider = ({children}) => {
   const [state, dispatch] = useReducer(appReducer, initialState)
   return (
     <DispatchCtx.Provider value={dispatch}>

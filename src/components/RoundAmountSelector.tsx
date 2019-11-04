@@ -1,9 +1,9 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
-import { useDispatch, useGlobalState } from '../state/AppContext'
+import {View, StyleSheet} from 'react-native'
+import {useDispatch, useGlobalState} from '../state/AppContext'
 import Theme from '../values/Theme'
 import ButtonStepModifier from './ButtonStepModifier'
-import { DSText, AnimatedText } from './index'
+import {DSText, AnimatedText} from './index'
 
 const RoundAmountSelector = () => {
   const dispatch = useDispatch()

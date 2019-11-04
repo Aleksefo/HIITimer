@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { View, StyleSheet, Animated } from 'react-native'
-import { useGlobalState } from '../state/AppContext'
+import React, {useEffect, useState} from 'react'
+import {View, StyleSheet, Animated} from 'react-native'
+import {useGlobalState} from '../state/AppContext'
 
 const AnimatedBackground = props => {
   const state = useGlobalState()
@@ -9,7 +9,7 @@ const AnimatedBackground = props => {
   const [rippleColor, setRippleColor] = useState(state.theme.background)
   const animationStyles = {
     backgroundColor: rippleColor,
-    transform: [{ scale: animation }],
+    transform: [{scale: animation}],
   }
   const changeBackgroundStyle = () => {
     let backgroundColor
@@ -50,7 +50,7 @@ const AnimatedBackground = props => {
   }, [state.counterStatus, state.currentSet, state.theme.background])
 
   return (
-    <View style={[s.container, { backgroundColor }]}>
+    <View style={[s.container, {backgroundColor}]}>
       <Animated.View style={[props.style, s.ripple, animationStyles]} />
     </View>
   )

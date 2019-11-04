@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { StyleSheet, TouchableOpacity } from 'react-native'
+import React, {useState} from 'react'
+import {StyleSheet, TouchableOpacity} from 'react-native'
 import Theme from '../values/Theme'
 import useInterval from '../state/useInterval'
 import Icon from 'react-native-vector-icons/AntDesign'
-import { useGlobalState } from '../state/AppContext'
+import {useGlobalState} from '../state/AppContext'
 
 type Props = {
   positive?: boolean
@@ -11,7 +11,7 @@ type Props = {
   onPress: () => void
 }
 
-const ButtonStepModifier = ({ positive = true, disabled, onPress }: Props) => {
+const ButtonStepModifier = ({positive = true, disabled, onPress}: Props) => {
   const state = useGlobalState()
   const [pressed, setPressed] = useState(false)
   const [delay, setDelay] = useState(500)
@@ -68,8 +68,7 @@ const ButtonStepModifier = ({ positive = true, disabled, onPress }: Props) => {
           backgroundColor: state.theme.grey2,
         },
       ]}
-      hitSlop={{ top: 12, right: 12, bottom: 12, left: 12 }}
-    >
+      hitSlop={{top: 12, right: 12, bottom: 12, left: 12}}>
       {renderIcon}
     </TouchableOpacity>
   )

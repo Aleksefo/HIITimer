@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, {useEffect} from 'react'
 import {
   StyleSheet,
   ScrollView,
@@ -8,7 +8,7 @@ import {
   StatusBar,
   Platform,
 } from 'react-native'
-import { useDispatch, useGlobalState } from '../state/AppContext'
+import {useDispatch, useGlobalState} from '../state/AppContext'
 import {
   Counter,
   SessionConfigurator,
@@ -35,12 +35,12 @@ const DashboardScreen = () => {
 
   useEffect(() => {
     // removeValue()
-    checkFirstLaunch({ dispatch }).then()
+    checkFirstLaunch({dispatch}).then()
   }, [])
 
   useEffect(() => {
     if (state.stateLoaded) {
-      RNBootSplash.hide({ duration: 500 })
+      RNBootSplash.hide({duration: 500})
       if (state.themeState === 'light' && Platform.OS === 'ios') {
         StatusBar.setBarStyle('dark-content', true)
       } else if (Platform.OS === 'ios') {
@@ -69,9 +69,8 @@ const DashboardScreen = () => {
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={[s.container]}
-        bounces={false}
-      >
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        bounces={false}>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <SettingControls onPress={changeVolumeState} icon={iconName()} />
           <SettingControls onPress={changeThemeState} icon={'brightness-4'} />
         </View>
@@ -98,7 +97,7 @@ export default React.memo(DashboardScreen)
 // props as arguments and should return true if you want to re-render the component.
 
 const s = StyleSheet.create({
-  safeArea: { flex: 1 },
+  safeArea: {flex: 1},
   container: {
     flex: 1,
     paddingHorizontal: Theme.sizeXL,

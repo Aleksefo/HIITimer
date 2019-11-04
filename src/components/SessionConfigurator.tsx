@@ -1,11 +1,11 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import {View, StyleSheet} from 'react-native'
 import SetAmountSelector from './SetAmountSelector'
 import SetTimeSelector from './SetTimeSelector'
 import RoundAmountSelector from './RoundAmountSelector'
 import str from '../values/strings'
 import Theme from '../values/Theme'
-import { DSText, Spacing } from './index'
+import {DSText, Spacing} from './index'
 
 const SessionConfigurator = () => {
   return (

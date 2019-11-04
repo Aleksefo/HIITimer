@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { StyleSheet, TextInput } from 'react-native'
-import { useDispatch, useGlobalState } from '../state/AppContext'
+import React, {useEffect, useState} from 'react'
+import {StyleSheet, TextInput} from 'react-native'
+import {useDispatch, useGlobalState} from '../state/AppContext'
 import Theme from '../values/Theme'
 
 const TimeInput = props => {
@@ -55,9 +55,9 @@ const TimeInput = props => {
     <TextInput
       editable={!props.disabled}
       style={[
-        { color: state.theme.text },
+        {color: state.theme.text},
         props.style,
-        props.disabled ? { color: state.theme.grey2 } : null,
+        props.disabled ? {color: state.theme.grey2} : null,
         Theme.styled.fontFamily,
       ]}
       keyboardType={'number-pad'}

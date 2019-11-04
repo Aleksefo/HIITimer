@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { Animated, Easing } from 'react-native'
+import React, {useEffect, useState} from 'react'
+import {Animated, Easing} from 'react-native'
 
 const AnimatedText = props => {
   const [animation] = useState(new Animated.Value(1))
   const animationStyles = {
-    transform: [{ scale: animation }],
+    transform: [{scale: animation}],
   }
 
   useEffect(() => {

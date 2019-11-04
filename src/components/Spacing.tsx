@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import {View} from 'react-native'
 import Theme from '../values/Theme'
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
   xl?: boolean
   xxl?: boolean
 }
-const Spacing = ({ xxs, xs, s, m, l, xl, xxl }: Props) => {
+const Spacing = ({xxs, xs, s, m, l, xl, xxl}: Props) => {
   let space
   if (xxs) space = Theme.sizeXXS
   if (xs) space = Theme.sizeXS
@@ -20,7 +20,7 @@ const Spacing = ({ xxs, xs, s, m, l, xl, xxl }: Props) => {
   if (l) space = Theme.sizeL
   if (xl) space = Theme.sizeXL
   if (xxl) space = Theme.sizeXXL
-  return <View style={{ height: space, width: space }} />
+  return <View style={{height: space, width: space}} />
 }
 
 export default Spacing

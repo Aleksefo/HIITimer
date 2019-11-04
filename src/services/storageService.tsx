@@ -1,21 +1,21 @@
 import AsyncStorage from '@react-native-community/async-storage'
-import { initialState } from '../state/AppContext'
+import {initialState} from '../state/AppContext'
 const appStateKey = 'appStateKey'
 
-export const checkFirstLaunch = async ({ dispatch }) => {
+export const checkFirstLaunch = async ({dispatch}) => {
   // const dispatch = useDispatch()
   try {
     const savedState = await AsyncStorage.getItem(appStateKey)
     if (savedState === null) {
       dispatch({
         type: 'loadStoredState',
-        payload: { state: {} },
+        payload: {state: {}},
       })
       await AsyncStorage.setItem(appStateKey, JSON.stringify(initialState))
     } else {
       dispatch({
         type: 'loadStoredState',
-        payload: { state: JSON.parse(savedState) },
+        payload: {state: JSON.parse(savedState)},
       })
       dispatch({
         type: 'calculateTotalTime',

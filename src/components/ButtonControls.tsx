@@ -1,7 +1,7 @@
 import React from 'react'
-import { StyleSheet, TouchableOpacity } from 'react-native'
+import {StyleSheet, TouchableOpacity} from 'react-native'
 import Icon from 'react-native-vector-icons/AntDesign'
-import { useGlobalState } from '../state/AppContext'
+import {useGlobalState} from '../state/AppContext'
 
 const ButtonControls = props => {
   const state = useGlobalState()
@@ -17,8 +17,7 @@ const ButtonControls = props => {
         styles.button,
         props.style,
       ]}
-      hitSlop={{ top: 12, right: 12, bottom: 12, left: 12 }}
-    >
+      hitSlop={{top: 12, right: 12, bottom: 12, left: 12}}>
       <Icon
         name={props.iconName}
         size={32}

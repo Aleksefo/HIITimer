@@ -32,7 +32,7 @@ class BackgroundTimer extends React.Component<Props> {
     this.backgroundTimer = _BackgroundTimer.setInterval(() => {
       let currentDate = Date.now()
       let timeRemaining = this.state.targetDate - currentDate
-      this.setState({ currentDate, duration: timeRemaining })
+      this.setState({currentDate, duration: timeRemaining})
       if (timeRemaining <= 0) this.complete()
       else this.props.onTick(timeRemaining)
     }, delay)
@@ -45,7 +45,7 @@ class BackgroundTimer extends React.Component<Props> {
   complete = () => {
     this.props.onTick(0)
     this.stopCount()
-    this.setState({ duration: this.props.duration })
+    this.setState({duration: this.props.duration})
     this.props.onComplete()
   }
 

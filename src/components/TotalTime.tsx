@@ -1,12 +1,12 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import {StyleSheet, View} from 'react-native'
 import str from '../values/strings'
-import { useGlobalState } from '../state/AppContext'
+import {useGlobalState} from '../state/AppContext'
 import Theme from '../values/Theme'
-import { AnimatedText, DSText } from './index'
+import {AnimatedText, DSText} from './index'
 
 const TotalTime = () => {
-  const { counterStatus, totalTimeLeft } = useGlobalState()
+  const {counterStatus, totalTimeLeft} = useGlobalState()
   let minutes: number | string
   let seconds: number | string
   minutes = Math.floor(totalTimeLeft / 60)
