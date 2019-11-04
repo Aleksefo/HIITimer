@@ -1,7 +1,7 @@
 import React from 'react'
-import { Provider, useGlobalState } from './state/AppContext'
+import {Provider, useGlobalState} from './state/AppContext'
 import DashboardScreen from './screens/DashboardScreen'
-import { StatusBar } from 'react-native'
+import {StatusBar} from 'react-native'
 
 const App = () => {
   const state = useGlobalState()
