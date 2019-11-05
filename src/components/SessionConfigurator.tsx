@@ -37,7 +37,7 @@ const SessionConfigurator = () => {
 
 const s = StyleSheet.create({
   container: {
-    justifyContent: 'flex-end',
+    justifyContent: 'space-around',
     flex: 1,
   },
   titleContainer: {

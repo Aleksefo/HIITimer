@@ -29,7 +29,7 @@ const themes = {
     grey4: '#c5c9cb',
     background: '#000000',
     backgroundSet1: '#00551e',
-    backgroundSet2: '#736e00',
+    backgroundSet2: '#733100',
     backgroundSet3: '#55000f',
     backgroundSet4: '#002655',
     backgroundPaused: '#555554',
