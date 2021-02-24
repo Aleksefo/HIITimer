@@ -6,7 +6,10 @@ import {
   SafeAreaView,
   View,
   StatusBar,
+  Text,
   Platform,
+  TouchableOpacity,
+  Linking,
 } from 'react-native'
 import {useDispatch, useGlobalState} from '../state/AppContext'
 import {
@@ -24,6 +27,7 @@ import {
 import KeepAwake from 'react-native-keep-awake'
 import Theme from '../values/Theme'
 import RNBootSplash from 'react-native-bootsplash'
+import themes from '../values/themes'
 
 const DashboardScreen = () => {
   const dispatch = useDispatch()
@@ -84,6 +88,18 @@ const DashboardScreen = () => {
         <TotalTime />
         <Counter style={s.counter} />
         <AnimatedBackground />
+        <TouchableOpacity
+          onPress={() =>
+            Linking.openURL('https://www.aleksefo.com/privacy_policy_hiit.html')
+          }
+          hitSlop={{top: 12, right: 12, bottom: 12, left: 12}}
+          style={{
+            alignItems: 'center',
+          }}>
+          <Text style={{fontSize: 10, color: state.theme.primary}}>
+            Privacy Policy
+          </Text>
+        </TouchableOpacity>
       </ScrollView>
       {Platform.OS === 'ios' && <AnimatedBackground />}
     </SafeAreaView>
